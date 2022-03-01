@@ -5,10 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
-  has_many :inbox, foreign_key: :first_user_id, class_name: 'Inbox'
-  has_many :outbox, foreign_key: :second_user_id, class_name: 'Inbox'
-  has_many :letters, through: :inbox, class_name: 'Inbox'
-  has_many :letters, through: :outbox, class_name: 'Inbox'
+
+  has_many :inboxes, class_name: 'Inbox'
+  has_many :letters
   has_many :hobbies, through: :hobby_tags
 
+  def inboxes
+    Inbox.where(first_user: self).or(Inbox.where(second_user: self))
+  end
+
+  def letters
+    Letter.where(sender: self).or(Letter.where(receiver: self))
+  end
 end

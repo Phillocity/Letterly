@@ -72,14 +72,13 @@ gem 'faker'
 # Event Listening
 gem 'stimulus-rails'
 
-
 # Search Filter
 gem 'elasticsearch', "< 7.14" # to use a supported version of the Elasticsearch Ruby client
 gem 'searchkick', '~> 4.0'
 gem 'pg_search', '~> 2.3.0'
 gem 'jquery-rails'
 
-#Cloudinary
+# Cloudinary
 gem 'cloudinary', '~> 1.16.0'
 gem 'bootstrap'
 
