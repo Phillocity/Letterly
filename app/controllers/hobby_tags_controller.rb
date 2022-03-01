@@ -1,0 +1,2 @@
+class HobbyTagsController < ApplicationController
+end
