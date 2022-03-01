@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, :email, :password, presence: true
-  validates :email, uniqueness: true
-  validates :email, format: { with: /\A.*@.*\.com\z/ }
-  has_many :letters, through: :inboxes
-  has_many :inboxes
+  validates :name, presence: true
+  has_many :inbox, foreign_key: :first_user_id, class_name: 'Inbox'
+  has_many :outbox, foreign_key: :second_user_id, class_name: 'Inbox'
+  has_many :letters, through: :inbox, class_name: 'Inbox'
+  has_many :letters, through: :outbox, class_name: 'Inbox'
   has_many :hobbies, through: :hobby_tags
 
 end

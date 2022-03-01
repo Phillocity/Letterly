@@ -29,12 +29,10 @@ ActiveRecord::Schema.define(version: 2022_02_28_155722) do
   end
 
   create_table "inboxes", force: :cascade do |t|
-    t.bigint "first_user_id", null: false
-    t.bigint "second_user_id", null: false
+    t.integer "first_user_id"
+    t.integer "second_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["first_user_id"], name: "index_inboxes_on_first_user_id"
-    t.index ["second_user_id"], name: "index_inboxes_on_second_user_id"
   end
 
   create_table "letters", force: :cascade do |t|
@@ -64,6 +62,4 @@ ActiveRecord::Schema.define(version: 2022_02_28_155722) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "inboxes", "users", column: "first_user_id"
-  add_foreign_key "inboxes", "users", column: "second_user_id"
 end
