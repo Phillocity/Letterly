@@ -19,10 +19,11 @@
 @import "components/button_action";
 @import "components/button_action";
 
+// Mapbox
+@import "mapbox-gl/dist/mapbox-gl";
 
 .flex-wrapper{
   display: flex;
   min-height: calc(85vh - 145px);
   flex-direction: column;
 }
-
