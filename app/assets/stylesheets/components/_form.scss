@@ -23,12 +23,16 @@
   border-radius: 5px;
 }
 
-.form-actions {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .links {
   margin: auto;
+}
+
+.form-actions {
+  display:flex;
+  flex-direction: column;
+  max-width: 10vw;
+  justify-content: center;
+  width:50%;
+  margin:auto;
+  padding: 20px 0
 }
