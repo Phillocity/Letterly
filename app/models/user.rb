@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
+  validates :name, :location, presence: true
 
   has_many :inboxes, class_name: 'Inbox'
   has_many :letters

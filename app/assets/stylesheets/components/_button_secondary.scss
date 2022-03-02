@@ -1,0 +1,33 @@
+.button-secondary {
+  background: #EF534F;
+  background-image: -webkit-linear-gradient(top, #FFDE17, #dfc119);
+  background-image: -moz-linear-gradient(top, #FFDE17, #dfc119);
+  background-image: -ms-linear-gradient(top, #FFDE17, #dfc119);
+  background-image: -o-linear-gradient(top, #FFDE17, #dfc119);
+  background-image: linear-gradient(to bottom, #FFDE17, #dfc119);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 15px;
+  border: solid;
+  border-color: #191716;
+  color: #191716;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  font-weight: bolder;
+  width: auto;
+  text-align: center;
+  margin: auto 20px 10px 20px;
+}
+
+.button-secondary:hover {
+  background: #3761A8;
+  background-image: -webkit-linear-gradient(top, #A1D4ED, #598094);
+  background-image: -moz-linear-gradient(top, #A1D4ED, #598094);
+  background-image: -ms-linear-gradient(top, #A1D4ED, #598094);
+  background-image: -o-linear-gradient(top, #A1D4ED, #598094);
+  background-image: linear-gradient(to bottom, #A1D4ED, #598094);
+  text-decoration: none;
+  font-weight: bold;
+  color: #191716;
+}
