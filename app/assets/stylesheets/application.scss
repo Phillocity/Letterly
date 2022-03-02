@@ -13,3 +13,9 @@
 @import "components/footer";
 @import "components/navbar";
 @import "pages/index";
+
+.flex-wrapper{
+  display: flex;
+  min-height: calc(85vh - 145px);
+  flex-direction: column;
+}
