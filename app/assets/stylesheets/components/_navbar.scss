@@ -1,12 +1,44 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-brand img {
+  width: 3vw;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.nav-link {
+  color: $letterly-dark-blue;
+  margin-left: 2vw;
+  font-size: 2vmin;
+  font-weight: strong;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-link:hover {
+  color: $letterly-light-blue;
+  opacity: 0.7
+}
+
+.logo-left h1{
+  font-weight: bold;
+  font-size: calc(1.375rem + 1.5vw);
+}
+
+.halftone {
+  position: relative;
+}
+
+.stroke {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #111827;
+  color: transparent;
+}
+
+.halftone:after {
+  content: "LETTERLY";
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHElEQVQYV2NUVFT8f//+fUYGBgYGMAEDcA5IBQCKJQVmn76DhAAAAABJRU5ErkJggg==) repeat;
+  left: calc(50% + 6px);
+  position: absolute;
+  top: calc(50% + 6px);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  -webkit-text-stroke-width: 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
