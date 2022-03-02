@@ -9,8 +9,13 @@ require 'faker'
 
 10.times do |i|
 
-  user = User.new(name:Faker::Name.unique.name, email:Faker::Internet.email, password:"111111", location:Faker::Address.city, description:Faker::Quote.most_interesting_man_in_the_world, age:rand(18..40))
-  user1 = User.new(name:Faker::Name.unique.name, email:Faker::Internet.email, password:"111111", location:Faker::Address.city, description:Faker::Quote.most_interesting_man_in_the_world, age:rand(18..40))
+  user = User.new(name:Faker::Name.unique.name,
+                  email:Faker::Internet.email,
+                  password:"111111",
+                  address:Faker::Address.city,
+                  description:Faker::Quote.most_interesting_man_in_the_world,
+                  age:rand(18..40))
+  user1 = User.new(name:Faker::Name.unique.name, email:Faker::Internet.email, password:"111111", address:Faker::Address.city, description:Faker::Quote.most_interesting_man_in_the_world, age:rand(18..40))
 
   user.save!
   user1.save!
