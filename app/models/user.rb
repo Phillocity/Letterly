@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, :location, presence: true
+  validates :name, :address, presence: true
 
   has_many :inboxes, class_name: 'Inbox'
   has_many :letters
@@ -17,4 +17,7 @@ class User < ApplicationRecord
   def letters
     Letter.where(sender: self).or(Letter.where(receiver: self))
   end
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

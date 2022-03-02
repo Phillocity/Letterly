@@ -141,6 +141,7 @@ GEM
     ffi (1.15.5)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
+    geocoder (1.7.3)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -334,6 +335,7 @@ DEPENDENCIES
   elasticsearch (< 7.14)
   faker
   font-awesome-sass
+  geocoder
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
