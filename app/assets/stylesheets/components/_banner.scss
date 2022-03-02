@@ -11,7 +11,8 @@
 
   .typing-header {
     color:white;
-    width: 717px;
+    width: 50%;
+    margin:auto;
     animation: typing 2s steps(22), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
