@@ -10,7 +10,18 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/footer";
+@import "components/navbar";
 @import "pages/index";
+
 @import "components/form";
 @import "components/button_action";
 @import "components/button_action";
+
+
+.flex-wrapper{
+  display: flex;
+  min-height: calc(85vh - 145px);
+  flex-direction: column;
+}
+
