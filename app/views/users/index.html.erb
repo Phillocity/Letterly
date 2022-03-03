@@ -22,7 +22,7 @@
     </div>
     <%= form_tag inboxes_path, method: :post do %>
       <%= hidden_field_tag "user_id", "#{user.id}" %>
-      <%= submit_tag "Send a letter!", class: "retro" %>
+      <%= submit_tag "Send a letter!", class: "retro p-2 px-4 my-2" %>
     <% end %>
   </div>
 </div>
