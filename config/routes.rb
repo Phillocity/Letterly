@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index], path: :pals, as: :pals do
     resources :inboxes, only: [:index, :show]
   end
+
   resources :inboxes, only: [:new, :create] do
     resources :letters, only: [:new, :create]
   end
+
   resources :letter, only: [:index, :show]
 end

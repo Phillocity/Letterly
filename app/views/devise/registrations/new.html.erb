@@ -21,6 +21,11 @@
                       autofocus: true,
                       label: "Your email",
                       placeholder: "Your email"%>
+        <%= f.input :gender,
+                      required: true,
+                      autofocus: true,
+                      label: "Your Gender",
+                      placeholder: "(Optional) Add your gender"%>
         <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -30,6 +35,11 @@
                       required: true,
                       label: "Repeat your password",
                       placeholder: "•••••••••••" %>
+        <%= f.input :avatar,
+                      required: false,
+                      autofocus: true,
+                      label: "Your Avatar",
+                      placeholder: "Your Avatar URL link"%>
         <div class="form-actions">
           <button type="submit" class="retroaction">Sign Up</button>
           <%= render "devise/shared/links"%>
