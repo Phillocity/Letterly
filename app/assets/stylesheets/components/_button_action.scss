@@ -30,9 +30,39 @@
 }
 
 .rbtn-small{
-  box-shadow: 2px 2px black, 4px 4px white;
-  padding:10px;
+  display: inline-block;
+  vertical-align: middle;
+  user-select: none;
+  line-height: 1.5;
+  background: white;
+  color: black;
+  font-weight: 400;
+  text-align: left;
+  border: 3px solid black!important;
+  border-radius: 0;
+  box-shadow: 3px 3px black, 5px 5px white;
+  padding: 2%;
+  font-size: 1vw;
+  text-decoration: none !important;;
+  text-align: center !important;;
+  margin: 10px 0;
+  width: 50%;
 }
+
+
+.rbtn-small:hover{
+  color: black;
+  background: #FFDE17;
+}
+
+.rbtn-small:active{
+  background-color: white!important;
+  color: black!important;
+  box-shadow: 0px 0px white;
+  transform: translateX(5px) translateY(2px);
+}
+
+
 
 .rbtn-big{
   box-shadow: 2px 2px black, 3px 3px white;

@@ -3,8 +3,14 @@
   border-radius: 50%;
 }
 .avatar-large {
-  width: 56px;
+  min-width: 115px;
+  max-width: 115px;
   border-radius: 50%;
+
+  img{
+    min-width: 115px;
+    max-width: 115px;
+  }
 }
 .avatar-bordered {
   width: 40px;

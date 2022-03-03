@@ -85,5 +85,5 @@ gem 'bootstrap'
 # AJAX
 gem "turbolinks_render"
 
-#Mapbox
+# Mapbox
 gem "geocoder"
