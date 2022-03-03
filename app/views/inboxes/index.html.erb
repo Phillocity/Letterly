@@ -1,3 +1,8 @@
+<ol>
 <% @me.inboxes.each do |inbox| %>
-  <%= inbox.second_user.name %>
+  <% inbox.letters.each do |letter| %>
+   <li> From Sender - <%=  letter.sender.name %> <strong><%=  letter.content %></strong></li>
+   <br>
+  <% end %>
 <% end %>
+</ol>
