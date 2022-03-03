@@ -1,0 +1,30 @@
+.form-outline {
+  border-radius: 2px;
+  background-color: $letterly-dark-yellow;
+  padding: 20px;
+
+
+}
+
+
+.form {
+  padding: 20px;
+  border-radius: 2px;
+  background-color: $letterly-light-yellow;
+  display: flex;
+  justify-content: left;
+  overflow: auto;
+  height: 60vh;
+
+
+}
+
+
+.actions {
+  width: 100%;
+}
+
+
+.retro {
+  width: 100px;
+}

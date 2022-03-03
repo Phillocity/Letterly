@@ -1,9 +1,9 @@
-.retro{
+.retroaction{
   display: inline-block;
   vertical-align: middle;
   user-select: none;
   line-height: 1.5;
-  background: white;
+  background: #FFDE17!important;
   color: black;
   font-weight: 400;
   text-align: left;
@@ -17,13 +17,13 @@
   margin-top: 10px;
 }
 
-.retro:hover{
+.retroaction:hover{
   color: black;
-  background: #FFDE17;
+  background: #A1D4ED !important;
 }
 
-.retro:active{
-  background-color: white!important;
+.retroaction:active{
+  background-color: #FFDE17!important;
   color: black!important;
   box-shadow: 0px 0px white;
   transform: translateX(5px) translateY(2px);
@@ -39,7 +39,7 @@
   padding: 20px;
 }
 
-.retro-img{
+.retroaction-img{
   display: inline-block;
   vertical-align: middle;
   user-select: none;
@@ -53,7 +53,7 @@
   box-shadow: 3px 3px black, 5px 5px white;
 }
 
-.retro-img:active{
+.retroaction-img:active{
   background-color: white!important;
   color: black!important;
   box-shadow: 0px 0px white;

@@ -16,7 +16,8 @@
 @import "pages/index";
 
 @import "components/form";
-@import "components/button_action";
+@import "components/retro";
+@import "components/retroaction";
 
 // Mapbox
 @import "mapbox-gl/dist/mapbox-gl";
@@ -26,3 +27,7 @@
   min-height: calc(85vh - 145px);
   flex-direction: column;
 }
+
+//Rich Text
+@import "./actiontext.scss";
+@import "components/letter";
