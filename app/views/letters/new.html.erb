@@ -1,0 +1,24 @@
+<h2>Write your letter here</h2>
+
+<div class="form-outline">
+  <div class="form">
+    <%= simple_form_for [@inbox, @letter] do |f| %>
+
+      <div class="field">
+        <%= f.label :subject, "Letter title" %>
+        <%= f.text_field :subject, placeholder: "What is your letter about" %>
+      </div>
+      <div class="field">
+        <%= f.label :content, "Letter text" %>
+        <%= f.rich_text_area :content, placeholder: "Write a letter - share a story" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Post my letter!", class: "retroaction" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+<%= link_to 'Back', pals_path, class:"retro" %>
