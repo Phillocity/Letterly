@@ -1,10 +1,30 @@
+.form-outline {
+  border-radius: 2px;
+  background-color: $letterly-dark-yellow;
+  padding: 20px;
+
+
+}
+
+
 .form {
-  box-sizing: border-box;
-  padding: 2rem;
-  border-radius: 1rem;
-  background-color: hsl(0, 0%, 100%);
-  border: 4px solid hsl(0, 0%, 90%);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  padding: 20px;
+  border-radius: 2px;
+  background-color: $letterly-light-yellow;
+  display: flex;
+  justify-content: left;
+  overflow: auto;
+  height: 60vh;
+
+
+}
+
+
+.actions {
+  width: 100%;
+}
+
+
+.retro {
+  width: 100px;
 }
