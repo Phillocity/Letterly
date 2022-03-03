@@ -20,9 +20,9 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercita</p>
     </div>
-    <%= form_tag inboxes_path, method: :post do %>
-      <%= hidden_field_tag "user_id", "#{user.id}" %>
-      <%= submit_tag "Send a letter!", class: "retro p-2 px-4 my-2" %>
+    <%= form_tag inboxes_path, id: "form",method: :post do %>
+    <%= hidden_field_tag "user_id", "#{user.id}" %>
+    <button type="submit" class="retro fader">Send a letter!</button>
     <% end %>
   </div>
 </div>

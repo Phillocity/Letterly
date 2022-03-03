@@ -18,3 +18,4 @@ import "bootstrap"
 // for rich text editor
 require("trix")
 require("@rails/actiontext")
+require ("jquery")
