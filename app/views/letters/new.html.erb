@@ -1,1 +1,25 @@
-<h1>Hi I am a new letter</h1>
+<h2>Write your letter here</h2>
+
+<div class="form">
+  <%= simple_form_for(new_inbox_letter_path) do |f| %>
+
+    <div class="field">
+      <%= f.text_field :subject, label: "Letter title", placeholder: "What is your letter about" %>
+    </div>
+    <div class="field">
+      <%= f.rich_text_area :content, label: "Content", placeholder: "Write a letter - share a story" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Post my letter!", class: "retroaction", style: "background-color: #A1D4ED" %>
+    </div>
+
+  <% end %>
+</div>
+
+
+
+
+
+
+
+<%= link_to 'Back', users_path, class:"retro" %>
