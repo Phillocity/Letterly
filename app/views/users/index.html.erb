@@ -1,9 +1,6 @@
-<%= User.all.first.letters.first.receiver.name %>
-
-
 <% @users.each do |user|%>
 
-<div class="user wrapper bg-dark m-2" data-controller="user-card">
+<div class="user wrapper bg-dark m-2" data-controller="user-card"  data-action="click->user-card#revealContent" >
   <div class="user-card">
     <div class="avatar-large">
       <img src=<%=user.avatar%>>
@@ -15,14 +12,14 @@
       <h3><strong>Gender: </strong><%=user.gender%></h3>
     </div>
   </div>
-  <div class="hider " data-user-card-target="content">
+  <div class="hider d-none" data-user-card-target="content">
     <div class="user-card mt-2">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercita</p>
     </div>
-    <%= form_tag inboxes_path, method: :post do %>
-      <%= hidden_field_tag "user_id", "#{user.id}" %>
-      <%= submit_tag "Send a letter!", class: "retro p-2 px-4 my-2" %>
+    <%= form_tag inboxes_path, id: "form",method: :post do %>
+    <%= hidden_field_tag "user_id", "#{user.id}" %>
+    <button type="submit" class="retro fader">Send a letter!</button>
     <% end %>
   </div>
 </div>

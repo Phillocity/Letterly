@@ -35,7 +35,7 @@ randomizer = ('a'..'z').to_a
   inbox.save!
 
   rand(5..15).times do
-    letter = Letter.new(sender:user, receiver: user1, inbox: inbox, content: Faker::TvShows::BojackHorseman.quote, subject: Faker::TvShows::BojackHorseman.character)
+    letter = Letter.new(sender: user, receiver: user1, inbox: inbox, content: Faker::TvShows::BojackHorseman.quote, subject: Faker::TvShows::BojackHorseman.character)
     puts "[#{letter.subject}]\t \t Letter.sent!"
     letter.save!
 

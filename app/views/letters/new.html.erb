@@ -4,17 +4,17 @@
   <div class="form">
     <%= simple_form_for [@inbox, @letter] do |f| %>
 
-      <div class="field">
-        <%= f.label :subject, "Letter title" %>
-        <%= f.text_field :subject, placeholder: "What is your letter about" %>
-      </div>
-      <div class="field">
-        <%= f.label :content, "Letter text" %>
-        <%= f.rich_text_area :content, placeholder: "Write a letter - share a story" %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Post my letter!", class: "retroaction" %>
-      </div>
+    <div class="field">
+      <%= f.label :subject, "Letter title" %>
+      <%= f.text_field :subject, placeholder: "What is your letter about" %>
+    </div>
+    <div class="field">
+      <%= f.label :content, "Letter text" %>
+      <%= f.rich_text_area :content, placeholder: "Write a letter - share a story" %>
+    </div>
+    <div class="actions">
+      <button type="submit" class="retro-blue">Send a letter!</button>
+    </div>
 
     <% end %>
   </div>

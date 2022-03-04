@@ -87,3 +87,6 @@ gem "turbolinks_render"
 
 # Mapbox
 gem "geocoder"
+
+# Jquery
+gem 'jquery-rails'

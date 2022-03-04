@@ -1,1 +1,18 @@
 // Specific CSS for your home-page
+
+.fader {
+  animation: fadeInButton ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  display:flex
+}
+
+
+@keyframes fadeInButton {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 1;
+   }
+}

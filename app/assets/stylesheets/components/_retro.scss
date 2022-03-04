@@ -15,11 +15,33 @@
   text-decoration: none !important;;
   text-align: center !important;;
   margin-top: 10px;
+  position: relative;
+  animation: fixer ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.retro::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.retro:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.retro::before {
+  content: " ";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: $letterly-yellow;
+  z-index: -1;
+  transition: transform .3s ease;
 }
 
 .retro:hover{
   color: black;
-  background: #FFDE17 !important;
 }
 
 .retro:active{
@@ -28,6 +50,70 @@
   box-shadow: 0px 0px white;
   transform: translateX(5px) translateY(2px);
 }
+
+
+@keyframes fixer {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 1;
+   }
+  }
+
+
+  .retro-blue{
+    display: inline-block;
+    vertical-align: middle;
+    user-select: none;
+    line-height: 1.5;
+    background: $letterly-yellow;
+    color: black;
+    font-weight: 400;
+    text-align: left;
+    border: 3px solid black!important;
+    border-radius: 0;
+    box-shadow: 3px 3px black, 5px 5px white;
+    padding: 2%;
+    font-size: 1vw;
+    text-decoration: none !important;;
+    text-align: center !important;;
+    margin-top: 10px;
+    position: relative;
+    animation: fixer ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  .retro-blue::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+
+  .retro-blue:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .retro-blue::before {
+    content: " ";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: $letterly-light-blue;
+    z-index: -1;
+    transition: transform .3s ease;
+  }
+
+  .retro-blue:hover{
+    color: black;
+  }
+
+  .retro-blue:active{
+    background-color: white!important;
+    color: black!important;
+    box-shadow: 0px 0px white;
+    transform: translateX(5px) translateY(2px);
+  }
 
 .rbtn-small{
   display: inline-block;
@@ -48,6 +134,8 @@
   margin: 10px 0;
   width: 50%;
 }
+
+
 
 
 .rbtn-small:hover{

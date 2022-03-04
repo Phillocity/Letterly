@@ -1,7 +1,9 @@
 <div class="banner">
-  <div class="typing-header">
-    <h1>Write a letter. Share a story.</h1>
-    <%= link_to "Send a Letter", pals_path, class: "retro" %>
+  <div class="banner-items d-flex flex-column align-items-center justify-content-center">
+    <div class="typing-header">
+      <h1>Write a letter. Share a story.</h1>
+    </div>
+    <%= link_to "Send a Letter", pals_path, class: "retro fader" %>
   </div>
 </div>
 
@@ -10,7 +12,5 @@
   <p>TODO: Fill Content</p>
 </div>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
+<div style="width: 100%; height: 600px;" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
   data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
