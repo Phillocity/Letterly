@@ -8,25 +8,28 @@
 require 'faker'
 require 'json'
 require "open-uri"
+require_relative "cities"
+require_relative "description"
+require_relative "letters"
 
-# User.destroy_all
-# Inbox.destroy_all
-# Letter.destroy_all
+Letter.destroy_all
+Inbox.destroy_all
+User.destroy_all
 
 randomizer = ('a'..'z').to_a
 
-def random_city
-  url = "https://countriesnow.space/api/v0.1/countries"
-  response = RestClient.get(url)
-  cities = []
-  array = JSON.parse(response)["data"]
-  array.each do |item|
-    item["cities"].each do |city|
-      cities << city
-    end
-  end
-  cities.sample
-end
+# def random_city
+#   url = "https://countriesnow.space/api/v0.1/countries"
+#   response = RestClient.get(url)
+#   cities = []
+#   array = JSON.parse(response)["data"]
+#   array.each do |item|
+#     item["cities"].each do |city|
+#       cities << city
+#     end
+#   end
+#   cities.sample
+# end
 
 20.times do
 
@@ -35,8 +38,8 @@ end
                   gender:Faker::Gender.type,
                   avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
                   password:"111111",
-                  address: random_city,
-                  description:Faker::Quote.most_interesting_man_in_the_world,
+                  address: Cities::CITIES.sample,
+                  description: Description::DESCRIPTION.sample,
                   age:rand(18..40))
 
   user1 = User.new(name:Faker::Name.unique.name,
@@ -44,8 +47,8 @@ end
                   gender:Faker::Gender.type,
                   avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
                   password:"111111",
-                  address: random_city,
-                  description:Faker::Quote.most_interesting_man_in_the_world,
+                  address: Cities::CITIES.sample,
+                  description: Description::DESCRIPTION.sample,
                   age:rand(18..40))
 
   user.save!
@@ -55,11 +58,11 @@ end
   inbox.save!
 
   rand(5..15).times do
-    letter = Letter.new(sender: user, receiver: user1, inbox: inbox, content: Faker::TvShows::BojackHorseman.quote, subject: Faker::TvShows::BojackHorseman.character)
+    letter = Letter.new(sender: user, receiver: user1, inbox: inbox, content: Letters::LETTERS.sample, subject: Faker::TvShows::BojackHorseman.character)
     puts "[#{letter.subject}]\t \t Letter.sent!"
     letter.save!
 
-    letter = Letter.new(sender:user1, receiver: user, inbox: inbox,  content: Faker::TvShows::BojackHorseman.quote, subject: Faker::TvShows::BojackHorseman.character)
+    letter = Letter.new(sender:user1, receiver: user, inbox: inbox,  content: Letters::LETTERS.sample, subject: Faker::TvShows::BojackHorseman.character)
     puts "[#{letter.subject}]\t \t Letter sent!"
     letter.save!
   end

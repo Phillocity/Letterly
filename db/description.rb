@@ -1,0 +1,14 @@
+module Description
+DESCRIPTION = [
+  "My hobbies are reading books and working out. Along with this, I also like cooking. While researching the company, I got to know about the in-house gym. Having a gym in the workplace is a great idea as employees can get to know each other better on a casual level apart from their designated roles.",
+  "I usually spend my leisure time reading books or playing badminton. I like reading new and trending novels and my favourite genres include suspense, horror and thriller novels. Being a voracious reader, I believe that I have a strong vocabulary and knowledge of grammar. My zeal for writing gets its flair from my passion for reading books.",
+  "I have a pet dog named Cookie and spending time with him is one of my favourite things to do. I also love to travel and I often plan trips with my family. But solo travelling gives me the bliss that I crave for. Every year I look forward to exploring new places and catching up on some lifetime memories.",
+  "I like participating in volunteer activities especially teaching underprivileged kids. I have been associated with a few non-profit organisations since my college days and I like spending my weekends helping these NGOs for different activities from teaching to organising interesting games and activities to make learning fun for kids.",
+  "I like learning new skills and recently I have been interested in exploring different languages as they help me explore new cultures around the world. I started learning Spanish online and I have already cleared the beginner level. I generally spend my weekends focusing on exploring new Spanish words and watching Spanish movies to strengthen my grasp over the language.",
+  "I have played football since high school and I have also been the captain of my college team. I love playing football in my free time as it helps me unwind, relax as well as boosts my creativity and analytical thinking skills.",
+  "My favourite hobby is travelling because I love discovering new cities and places around the world. I often save up for months to plan a trip every year. I love friends’ trips and family outings but solo travelling brings me the real adventure and thrill to venture into new places all by myself.",
+  "I like spending time in nature and capture all the wonderful moments of beauty with my camera. I have been doing nature photography since I was in school and is the best hobby I think I am truly proud of.",
+  "My best hobby is meditating and spending my free time at meditation retreats. I think it has really helped me understand my mind and its complexities and in ensuring a better mental wellbeing.",
+  "Composing music and songwriting have been my favourite pastime since I was in high school. I have my own garage band with a few of my high school classmates and we spend our free weekends and holidays composing new tunes and performing at open clubs."
+]
+end
