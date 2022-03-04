@@ -6,16 +6,36 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'json'
+require "open-uri"
+
+# User.destroy_all
+# Inbox.destroy_all
+# Letter.destroy_all
+
 randomizer = ('a'..'z').to_a
 
-10.times do
+def random_city
+  url = "https://countriesnow.space/api/v0.1/countries"
+  response = RestClient.get(url)
+  cities = []
+  array = JSON.parse(response)["data"]
+  array.each do |item|
+    item["cities"].each do |city|
+      cities << city
+    end
+  end
+  cities.sample
+end
+
+20.times do
 
   user = User.new(name:Faker::Name.unique.name,
                   email:Faker::Internet.email,
                   gender:Faker::Gender.type,
                   avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
                   password:"111111",
-                  address:Faker::Address.city,
+                  address: random_city,
                   description:Faker::Quote.most_interesting_man_in_the_world,
                   age:rand(18..40))
 
@@ -24,7 +44,7 @@ randomizer = ('a'..'z').to_a
                   gender:Faker::Gender.type,
                   avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
                   password:"111111",
-                  address:Faker::Address.city,
+                  address: random_city,
                   description:Faker::Quote.most_interesting_man_in_the_world,
                   age:rand(18..40))
 
@@ -43,6 +63,4 @@ randomizer = ('a'..'z').to_a
     puts "[#{letter.subject}]\t \t Letter sent!"
     letter.save!
   end
-
-
 end
