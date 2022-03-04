@@ -9,9 +9,9 @@ require 'faker'
 require 'json'
 require "open-uri"
 
-# User.destroy_all
-# Inbox.destroy_all
-# Letter.destroy_all
+Letter.destroy_all
+Inbox.destroy_all
+User.destroy_all
 
 randomizer = ('a'..'z').to_a
 
