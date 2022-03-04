@@ -1,7 +1,7 @@
 <div class="col-12 navbar navbar-expand-lg bg-light sticky-top p-4">
   <div class="col-7 container-fluid">
 
-    <div class="logo-left d-flex align-items-center position-absolute">
+    <div class="logo-left d-flex align-items-center">
       <%= link_to "/", class: "navbar-brand d-flex align-items-center" do %>
       <%= image_tag "logo.png" %>
       <h1 class="halftone mx-2">LETTERLY</h1>
@@ -20,7 +20,7 @@
         </li>
 
         <li class="nav-item">
-          <%= link_to "Letters", "#", class: "nav-link" %>
+          <%= link_to "Letters", pals_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item">
@@ -32,10 +32,13 @@
         </li>
 
     </div>
-    <li style="list-style: none;" class="nav-item dropdown">
-      <%= image_tag "avatar-placeholder.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <li style="list-style: none;" class="nav-item dropdown d-flex align-items-center justify-content-center">
+    <h6 class="m-0"><%= @name %></h6>
+
+      <%= image_tag @avatar, class: "avatar dropdown-toggle mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <%= link_to "My Letters", "#", class: "dropdown-item" %>
+      <% path = user_signed_in? ? pal_inboxes_path(current_user) : "/"%>
+        <%= link_to "My Letters", path, class: "dropdown-item" %>
         <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>
     </li>

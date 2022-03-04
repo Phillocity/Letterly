@@ -1,8 +1,7 @@
 <ol>
-<% @me.inboxes.each do |inbox| %>
-  <% inbox.letters.each do |letter| %>
-   <li> From Sender - <%=  letter.sender.name %> <strong><%=  letter.content %></strong></li>
-   <br>
-  <% end %>
+<% @me.inboxes.reverse.each do |inbox| %>
+ <% receiver = inbox.first_user == current_user ? inbox.second_user : inbox.first_user%>
+  <li><%= link_to "📧 Inbox - #{receiver.name}", pal_inbox_path(@me.id, inbox)  %></li>
 <% end %>
+
 </ol>

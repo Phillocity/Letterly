@@ -1,0 +1,7 @@
+<ol>
+  <% @inbox.letters.reverse.each do |letter| %>
+   <li><%= letter.sender == current_user ? "Sent to #{letter.receiver.name}" : "From Sender: #{letter.sender.name}" %>  </li>
+   <strong><%=  letter.content %></strong>
+   <br>
+  <% end %>
+</ol>
