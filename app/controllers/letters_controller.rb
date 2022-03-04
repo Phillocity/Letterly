@@ -2,6 +2,7 @@ class LettersController < ApplicationController
   def new
     @letter = Letter.new
     @inbox = Inbox.find(params[:inbox_id])
+    @receiver = current_user == @inbox.first_user ? @inbox.second_user : @inbox.first_user
   end
 
   def create

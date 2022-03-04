@@ -7,16 +7,20 @@
 }
 
 
-.form {
-  padding: 20px;
-  border-radius: 2px;
+.form-letter {
+  padding: 2%;
+  border-radius: 4px;
   background-color: $letterly-light-yellow;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   overflow: auto;
   height: 60vh;
 
-
+  #letter_content{
+    /* height: auto; */
+    background: white;
+    margin: 2% 0;
+  }
 }
 
 
@@ -24,7 +28,9 @@
   width: 100%;
 }
 
+h2 strong {
+  color:$letterly-light-yellow
+}
 
-// .retro {
-//   width: 100px;
-// }
+.trix-button--icon-increase-nesting-level,
+.trix-button--icon-decrease-nesting-level { display: none; }
