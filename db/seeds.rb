@@ -12,6 +12,7 @@ require_relative "cities"
 require_relative "description"
 require_relative "letters"
 
+
 Letter.destroy_all
 Inbox.destroy_all
 User.destroy_all
@@ -21,6 +22,9 @@ randomizer = ('a'..'z').to_a
 # def random_city
 #   url = "https://countriesnow.space/api/v0.1/countries"
 #   response = RestClient.get(url)
+
+#   puts response
+
 #   cities = []
 #   array = JSON.parse(response)["data"]
 #   array.each do |item|
@@ -41,7 +45,7 @@ randomizer = ('a'..'z').to_a
                   address: Cities::CITIES.sample,
                   description: Description::DESCRIPTION.sample,
                   age:rand(18..40))
-
+  
   user1 = User.new(name:Faker::Name.unique.name,
                   email:Faker::Internet.email,
                   gender:Faker::Gender.type,
@@ -67,3 +71,4 @@ randomizer = ('a'..'z').to_a
     letter.save!
   end
 end
+

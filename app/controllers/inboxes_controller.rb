@@ -10,7 +10,6 @@ class InboxesController < ApplicationController
   def show
     @me = current_user
     @inbox = Inbox.find(params[:id])
-
   end
 
   def new

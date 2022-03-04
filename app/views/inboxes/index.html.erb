@@ -1,7 +1,14 @@
-<ol>
+<div class="card mt-4">
+<ul>
 <% @me.inboxes.reverse.each do |inbox| %>
+<div class="avatar-large m-2">
+      <img src=<%=inbox.first_user.avatar%>>
+    </div>
  <% receiver = inbox.first_user == current_user ? inbox.second_user : inbox.first_user%>
-  <li><%= link_to "📧 Inbox - #{receiver.name}", pal_inbox_path(@me.id, inbox)  %></li>
+  <li><%= link_to "📧  #{receiver.name}", pal_inbox_path(@me.id, inbox)  %></li>
+
+
 <% end %>
 
-</ol>
+</ul>
+</div>

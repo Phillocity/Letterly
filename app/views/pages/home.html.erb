@@ -3,13 +3,14 @@
     <div class="typing-header">
       <h1>Write a letter. Share a story.</h1>
     </div>
+    <div class="cta-buttons d-flex justify-content-evenly ">
     <%= link_to "Send a Letter", pals_path, class: "retro fader" %>
+    <%= link_to "Message in a Bottle", pals_path, class: "retro-blue mx-5" %>
+    </div>
   </div>
 </div>
 
 <div class="container">
-  <h1>Homepage</h1>
-  <p>TODO: Fill Content</p>
 </div>
 
 <div style="width: 100%; height: 600px;" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
