@@ -45,7 +45,7 @@ randomizer = ('a'..'z').to_a
                   address: Cities::CITIES.sample,
                   description: Description::DESCRIPTION.sample,
                   age:rand(18..40))
-  
+
   user1 = User.new(name:Faker::Name.unique.name,
                   email:Faker::Internet.email,
                   gender:Faker::Gender.type,
@@ -71,4 +71,3 @@ randomizer = ('a'..'z').to_a
     letter.save!
   end
 end
-
