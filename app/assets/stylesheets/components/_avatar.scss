@@ -3,9 +3,11 @@
   border-radius: 50%;
 }
 .avatar-large {
-  min-width: 115px;
-  max-width: 115px;
+  min-width: 125px;
+  max-width: 125px;
+  background-color: white;
   border-radius: 50%;
+  border: 5px solid $letterly-grey;
 
   img{
     min-width: 115px;
@@ -13,7 +15,8 @@
   }
 }
 .avatar-bordered {
-  width: 40px;
+  min-width: 80px;
+  max-width: 80px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
