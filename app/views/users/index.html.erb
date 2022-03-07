@@ -1,5 +1,3 @@
-<% @users_sample.each do |user|%>
-
 <div data-controller="search-users">
   <%= simple_form_for :age, data: {search_users_target: 'formSlide'} do |f| %>
   <%= f.input :age,
@@ -9,7 +7,6 @@
                              action: 'change->search-users#test'
                      } %>
   <% end %>
-
   <%= form_with url: pals_path, method: :get, html: { class:
     'mb-4', data: { search_users_target: 'form' } } do |f| %>
   <%= f.text_field :query,
@@ -21,8 +18,4 @@
                      } %>
   <% end %>
 <%= render "shared/user_select"%>
-
-<%end%>
-
-
-
+</div>

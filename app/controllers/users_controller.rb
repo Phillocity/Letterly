@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
   def index
 
-    @users = User.all
+    if params[:query].present?
+      @users = User.search_user(params[:query])
+    end
+
+    @users = User.order('RANDOM()').first(5)
     @users_sample = []
-    @markers = @users.geocoded.sample(5).map do |user|
+    @markers = User.geocoded.map do |user|
+      puts user
       @users_sample << user
       {
         lat: user.latitude,
@@ -13,9 +18,7 @@ class UsersController < ApplicationController
       }
     end
 
-    if params[:query].present?
-      @users = User.search_user(params[:query])
-    end
+
 
     respond_to do |format|
       format.html # Follow regular flow of Rails

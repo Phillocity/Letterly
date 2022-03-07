@@ -1,5 +1,4 @@
 .user.wrapper {
-  width: 40%;
   padding: 1%;
   border-radius: 5px;
   display:flex;
@@ -18,7 +17,7 @@
     width: 99%;
     transition: .4s;
 
-    .card-info {
+    .card-right {
       margin-left: 4%;
       h3 {
         font-size: 1vw;
@@ -35,13 +34,10 @@
 
 .user.wrapper:hover{
   transform: scale(1.1);
-  margin: 4% 0!important;
+  margin: 4% 3% !important;
   transition: all .2s ease-in-out;
 }
 
-.hobbies{
-  position: relative;
-  top: 80px;
-  right: 100px;
-
+.list{
+  width: 50%;
 }

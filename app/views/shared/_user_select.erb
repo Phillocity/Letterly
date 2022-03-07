@@ -1,16 +1,20 @@
-  <div data-search-users-target="list">
+<div class="seperate d-flex ">
+  <div class="list" data-search-users-target="list">
     <% @users.each do |user|%>
     <div class="user wrapper bg-dark m-2" data-controller="user-card" data-search-user-target="list"
       data-action="click->user-card#revealContent">
       <div class="user-card">
-        <div class="avatar-large">
-          <img src=<%=user.avatar%>>
+        <div class="card-left">
+          <div class="avatar-large">
+            <img src=<%=user.avatar%>>
           </div>
-              <div class="hobbies">
-          <% user.hobbies.each do |hobby|%>
-              <%= hobby.name %>
-          <% end %>
-        <div class="card-info ">
+          <div class="hobbies">
+            <% user.hobbies.each do |hobby|%>
+            <%= hobby.name %>
+            <% end %>
+          </div>
+        </div>
+        <div class="card-right ">
           <h2><%=user.name%></h2>
           <h3><strong>Location: </strong><%=user.address%></h3>
           <h3><strong>Age: </strong><%=user.age%></h3>
@@ -28,6 +32,11 @@
       </div>
     </div>
     <%end%>
-<div style="width: 100%; height: 600px;" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
+  <div class="" style="margin-left: 1%;
+  width:50%;
+  height:80vh;
+  border-radius:20px" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="pk.eyJ1IjoibmF0YWxpamFzdGVwdXJrbyIsImEiOiJja3o4bW8zb2UweGNzMm9tdXp2dmJzZWkyIn0.z470pOfFM8IlVP_FRfyt6g">
+  </div>
+</div>
