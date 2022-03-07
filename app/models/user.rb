@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :inboxes, class_name: 'Inbox'
   has_many :letters
+  has_many :hobby_tags, dependent: :destroy
   has_many :hobbies, through: :hobby_tags
 
   def inboxes

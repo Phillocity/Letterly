@@ -1,4 +1,4 @@
 class HobbyTag < ApplicationRecord
-  has_many :hobbies
-  belongs_to :user, dependent: :destroy
+  belongs_to :hobby
+  belongs_to :user
 end
