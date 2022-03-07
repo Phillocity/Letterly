@@ -11,10 +11,13 @@ class PagesController < ApplicationController
     end
 
     @users = User.all
+
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude
+        lng: user.longitude,
+        info_window: render_to_string(partial: "users/info_window", locals: { user: user }),
+        image_url: helpers.asset_url("marker.png")
       }
     end
   end

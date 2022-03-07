@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :inboxes, only: [:index, :show]
   end
 
-  resources :inboxes, only: [:new, :create] do
+  resources :inboxes, only: [:new, :create, :destroy] do
     resources :letters, only: [:new, :create]
   end
 
