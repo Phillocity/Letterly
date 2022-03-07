@@ -20,5 +20,12 @@
   </div>
 </div>
 
+<%# <%= link_to 'Back', pals_path, class:"retro" %>
 
-<%= link_to 'Back', pals_path, class:"retro" %>
+<% if @inbox.letters.count.zero?  %>
+  <%=  link_to 'Destroy', @inbox, method: :delete, class:"retro", data: { confirm: 'Are you sure? All your letter content will be lost.' } %>
+<% else %>
+  <%= link_to 'Destroy', pals_path, class:"retro"  %>
+<% end %>
+
+ <%# if @inbox.letters.count.zero? %>

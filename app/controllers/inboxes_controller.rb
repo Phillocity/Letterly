@@ -27,5 +27,6 @@ class InboxesController < ApplicationController
   def destroy
     @inbox = Inbox.find(params[:id])
     @inbox.destroy
+    redirect_to pals_path
   end
 end
