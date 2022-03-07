@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content:center;
   align-items: center;
+  transition: .3s;
 
   .user-card {
     display: flex;
@@ -15,6 +16,7 @@
     padding: 1% 2%;
     border-radius: 5px;
     width: 99%;
+    transition: .4s;
 
     .card-info {
       margin-left: 4%;
@@ -33,5 +35,6 @@
 
 .user.wrapper:hover{
   transform: scale(1.1);
+  margin: 4% 0!important;
   transition: all .2s ease-in-out;
 }

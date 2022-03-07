@@ -5,7 +5,7 @@ class CreateLetters < ActiveRecord::Migration[6.1]
       t.references :receiver
       t.references :inbox
       t.text :content
-      t.time :delivery_time
+      t.integer :delivery_time
       t.string :subject
       t.boolean :bottled
 
