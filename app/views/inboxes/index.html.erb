@@ -1,4 +1,4 @@
-<div class="gridify">
+<div class="gridify m-4">
   <% @me.inboxes.reverse.each do |inbox| %>
   <% receiver = inbox.first_user == current_user ? inbox.second_user : inbox.first_user%>
   <div class="d-flex flex-column justify-content-center align-items-center text-center">
