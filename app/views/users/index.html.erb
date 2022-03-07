@@ -1,9 +1,12 @@
 <% @users.each do |user|%>
 
-<div class="user wrapper bg-dark m-2" data-controller="user-card"  data-action="click->user-card#revealContent" >
+<div class="user wrapper bg-dark m-4 " data-controller="user-card"  data-action="click->user-card#revealContent" >
   <div class="user-card">
     <div class="avatar-large">
       <img src=<%=user.avatar%>>
+    </div>
+    <div class="hobbies">
+    <p>hobbies</p>
     </div>
     <div class="card-info ">
       <h2><%=user.name%></h2>
