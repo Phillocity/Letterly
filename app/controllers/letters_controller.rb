@@ -13,12 +13,11 @@ class LettersController < ApplicationController
     @letter.receiver_id = @inbox.first_user_id == current_user.id ? @inbox.second_user_id : @inbox.first_user_id
     @letter.delivery_time = delivery_in_seconds(@letter.sender, @letter.receiver)
 
-    if @letter.save
+    if @letter.save!
       redirect_to pals_path, notice: "Your letter was posted."
     else
       render :new, notice: "Something went wrong. Try again."
     end
-    raise
   end
 
   def edit
