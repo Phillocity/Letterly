@@ -33,6 +33,7 @@ class LettersController < ApplicationController
   def delivery_in_seconds(user1, user2)
     user1 = user1.geocode
     user2 = user2.geocode
+
     distance = Geocoder::Calculations.distance_between(user1, user2)
     miles_per_hour = 80
     delivery_time_in_seconds = (distance / miles_per_hour) * 3600
