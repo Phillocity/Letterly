@@ -2,7 +2,7 @@
 <ol>
 
   <% @inbox.letters.reverse.each do |letter| %>
-  <div class="container">
+  <div class="inbox-container">
           <img class="avatar-sm" src=<%=letter.sender.avatar%>>
           <br>
    <li class="inbox-thread" data-bs-toggle="modal" data-bs-target="#exampleModal"><%= letter.sender == current_user ? "Sent to #{letter.receiver.name}" : "From Sender: #{letter.sender.name}" %>  </li>
