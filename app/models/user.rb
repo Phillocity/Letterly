@@ -13,10 +13,10 @@ class User < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_user,
-    against: [ :name, :gender, :age],
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: %i[name gender age],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   def inboxes
     Inbox.where(first_user: self).or(Inbox.where(second_user: self))
