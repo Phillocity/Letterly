@@ -12,9 +12,10 @@ require_relative "cities"
 require_relative "description"
 require_relative "letters"
 
-
 Letter.destroy_all
 Inbox.destroy_all
+HobbyTag.destroy_all
+Hobby.destroy_all
 User.destroy_all
 
 randomizer = ('a'..'z').to_a
@@ -35,30 +36,48 @@ randomizer = ('a'..'z').to_a
 #   cities.sample
 # end
 
+puts "created hobbies"
+
 20.times do
 
-  user = User.new(name:Faker::Name.unique.name,
-                  email:Faker::Internet.email,
-                  gender:Faker::Gender.type,
-                  avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
-                  password:"111111",
-                  address: Cities::CITIES.sample,
-                  description: Description::DESCRIPTION.sample,
-                  age:rand(18..40))
-  
-  user1 = User.new(name:Faker::Name.unique.name,
-                  email:Faker::Internet.email,
-                  gender:Faker::Gender.type,
-                  avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
-                  password:"111111",
-                  address: Cities::CITIES.sample,
-                  description: Description::DESCRIPTION.sample,
-                  age:rand(18..40))
+  user = User.create(name:Faker::Name.unique.name,
+    email:Faker::Internet.email,
+    gender:Faker::Gender.type,
+    avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
+    password:"111111",
+    address: Cities::CITIES.sample,
+    description: Description::DESCRIPTION.sample,
+    age:rand(18..40))
 
-  user.save!
-  user1.save!
+    puts "created user number #{user.id}"
 
-  inbox = Inbox.new(first_user:user, second_user: user1)
+    hobbies = []
+    10.times do
+      hobbies << Hobby.create!(name: Faker::Hobby.activity)
+    end
+
+    puts hobbies.sample.name
+
+    3.times do
+      HobbyTag.create!(hobby_id: hobbies.sample.id, user_id: user.id)
+    end
+
+    user1 = User.create(name:Faker::Name.unique.name,
+      email:Faker::Internet.email,
+      gender:Faker::Gender.type,
+      avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
+      password:"111111",
+      address: Cities::CITIES.sample,
+      description: Description::DESCRIPTION.sample,
+      age:rand(18..40))
+
+      puts "created user number #{user1.id}"
+
+      3.times do
+        HobbyTag.create!(hobby_id: hobbies.sample.id, user_id: user1.id)
+      end
+
+  inbox = Inbox.new(first_user: user, second_user: user1)
   inbox.save!
 
   rand(5..15).times do
@@ -71,4 +90,3 @@ randomizer = ('a'..'z').to_a
     letter.save!
   end
 end
-

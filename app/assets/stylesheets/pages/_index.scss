@@ -1,2 +1,19 @@
 // Import page-specific CSS files here.
+
 @import "components/map";
+
+.gridify {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 42px 60px;
+  padding: 30px;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 2px;
+
+  p {
+    color: $letterly-grey;
+  }
+}
+
