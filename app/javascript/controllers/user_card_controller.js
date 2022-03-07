@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = [ "content" ]
 
   connect() {
-    console.log("Hello Stimulus")
+    // console.log("Hello Stimulus")
   }
 
   revealContent() {

@@ -1,4 +1,16 @@
 <div data-controller="search-users">
+  <%= simple_form_for :age, data: {search_users_target: 'formSlide'} do |f| %>
+  <%= f.input :age,
+              input_html: { type: 'range', min: '16', max: '100', step: 'any' },
+              value: params[:age],
+              data: { search_users_target: 'age',
+                             action: 'change->search-users#test'
+                     } %>
+  <% end %>
+
+
+
+
   <%= form_with url: pals_path, method: :get, html: { class:
     'mb-4', data: { search_users_target: 'form' } } do |f| %>
   <%= f.text_field :query,
@@ -9,32 +21,5 @@
                              action: 'keyup->search-users#update'
                      } %>
   <% end %>
-
-  <div data-search-users-target="list">
-    <% @users.each do |user|%>
-    <div class="user wrapper bg-dark m-2" data-controller="user-card" data-search-user-target="list"
-      data-action="click->user-card#revealContent">
-      <div class="user-card">
-        <div class="avatar-large">
-          <img src=<%=user.avatar%>>
-        </div>
-        <div class="card-info ">
-          <h2><%=user.name%></h2>
-          <h3><strong>Location: </strong><%=user.address%></h3>
-          <h3><strong>Age: </strong><%=user.age%></h3>
-          <h3><strong>Gender: </strong><%=user.gender%></h3>
-        </div>
-      </div>
-      <div class="hider d-none w-100" data-user-card-target="content">
-        <div class="user-card mt-2">
-          <p><%= user.description %></p>
-        </div>
-        <%= form_tag inboxes_path, id: "form",method: :post do %>
-        <%= hidden_field_tag "user_id", "#{user.id}" %>
-        <button type="submit" class="retro fader">Send a letter!</button>
-        <% end %>
-      </div>
-    </div>
-    <%end%>
-  </div>
+<%= render "shared/user_select"%>
 </div>

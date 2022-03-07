@@ -9,6 +9,10 @@ export default class extends Controller {
     // console.log(this.listTarget)
   }
 
+  test() {
+    this.inputTarget.value
+  }
+
   update() {
     const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
     fetch(url, { headers: { "Accept": "text/plain" } })
