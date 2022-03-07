@@ -7,7 +7,7 @@
     <%= link_to "#{receiver.name.upcase}", pal_inbox_path(@me.id, inbox), class:"h6 m-0 text-center"%>
     <% last_update = time_ago_in_words(inbox.letters.last.created_at, include_seconds: true) %>
     <p class="m-0"><%= "Last letter" %></p>
-    <p><%= "#{last_update} ago" %></p
+    <p><%= "#{last_update} ago" %></p>
     <% end %>
   </div>
   <% end %>
