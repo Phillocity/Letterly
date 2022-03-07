@@ -35,10 +35,6 @@ randomizer = ('a'..'z').to_a
 #   end
 #   cities.sample
 # end
-hobbies = []
-10.times do
-  hobbies << Hobby.create(name: Faker::Hobby.activity)
-end
 
 puts "created hobbies"
 
@@ -55,8 +51,15 @@ puts "created hobbies"
 
     puts "created user number #{user.id}"
 
+    hobbies = []
+    10.times do
+      hobbies << Hobby.create!(name: Faker::Hobby.activity)
+    end
+
+    puts hobbies.sample.name
+
     3.times do
-      HobbyTag.create(hobby_id: hobbies.sample.id, user_id: user.id)
+      HobbyTag.create!(hobby_id: hobbies.sample.id, user_id: user.id)
     end
 
     user1 = User.create(name:Faker::Name.unique.name,
@@ -71,7 +74,7 @@ puts "created hobbies"
       puts "created user number #{user1.id}"
 
       3.times do
-        HobbyTag.create(hobby_id: hobbies.sample.id, user_id: user1.id)
+        HobbyTag.create!(hobby_id: hobbies.sample.id, user_id: user1.id)
       end
 
   inbox = Inbox.new(first_user: user, second_user: user1)

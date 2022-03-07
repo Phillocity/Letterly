@@ -6,7 +6,11 @@
       <img src=<%=user.avatar%>>
     </div>
     <div class="hobbies">
-    <p>hobbies</p>
+<% user.hobbies.each do |hobby|%>
+    <%= hobby.name %>
+
+<% end %>
+
     </div>
     <div class="card-info ">
       <h2><%=user.name%></h2>
