@@ -6,7 +6,6 @@
 
 }
 
-
 .form-letter {
   padding: 2%;
   border-radius: 4px;
@@ -34,3 +33,48 @@ h2 strong {
 
 .trix-button--icon-increase-nesting-level,
 .trix-button--icon-decrease-nesting-level { display: none; }
+
+ol{
+  list-style-type: none;
+}
+
+.avatar-sm {
+  min-width: 25px;
+  max-width: 25px;
+  background-color: white;
+  border-radius: 50%;
+  border: 5px solid $letterly-grey;
+
+  img{
+    min-width: 15px;
+    max-width: 15px;
+  }
+}
+
+.inbox-container{
+  display: flex;
+  padding-right: 20px;
+
+}
+
+.inbox-thread{
+
+  background-image: linear-gradient(120deg, rgb(254, 231, 70) 0%, #A1D4ED 100%);
+  background-repeat: no-repeat;
+
+background-size: 100% 0.2em;
+background-position: 0 100%;
+transition: background-size 0.25s ease-in;
+width: 300px;
+}
+
+.inbox-thread:hover {
+
+background-size: 100% 88%;
+cursor: pointer;
+}
+
+// li:hover{
+//   text-decoration: underline;
+//   text-decoration-color: rgb(254, 231, 70);
+// }
