@@ -25,4 +25,10 @@ class InboxesController < ApplicationController
     @inbox.save
     redirect_to new_inbox_letter_path(@inbox)
   end
+
+  def destroy
+    @inbox = Inbox.find(params[:id])
+    @inbox.destroy
+    redirect_to pals_path
+  end
 end

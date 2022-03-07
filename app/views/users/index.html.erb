@@ -1,3 +1,5 @@
+<% @users_sample.each do |user|%>
+
 <div data-controller="search-users">
   <%= simple_form_for :age, data: {search_users_target: 'formSlide'} do |f| %>
   <%= f.input :age,
@@ -19,4 +21,8 @@
                      } %>
   <% end %>
 <%= render "shared/user_select"%>
-</div>
+
+<%end%>
+
+
+

@@ -1,4 +1,7 @@
 // Import page-specific CSS files here.
+
+@import "components/map";
+
 .gridify {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -13,3 +16,4 @@
     color: $letterly-grey;
   }
 }
+
