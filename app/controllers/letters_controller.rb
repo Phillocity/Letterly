@@ -18,6 +18,7 @@ class LettersController < ApplicationController
     else
       render :new, notice: "Something went wrong. Try again."
     end
+
   end
 
   def edit
