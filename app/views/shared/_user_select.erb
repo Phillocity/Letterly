@@ -1,15 +1,3 @@
-<div data-controller="search-users">
-  <%= form_with url: pals_path, method: :get, html: { class:
-    'mb-4', data: { search_users_target: 'form' } } do |f| %>
-  <%= f.text_field :query,
-                     class: "form-control",
-                     placeholder: 'Type a user name',
-                     value: params[:query],
-                     data: { search_users_target: 'input',
-                             action: 'keyup->search-users#update'
-                     } %>
-  <% end %>
-
   <div data-search-users-target="list">
     <% @users.each do |user|%>
     <div class="user wrapper bg-dark m-2" data-controller="user-card" data-search-user-target="list"
@@ -37,4 +25,3 @@
     </div>
     <%end%>
   </div>
-</div>

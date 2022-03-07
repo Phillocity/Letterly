@@ -10,6 +10,13 @@ class User < ApplicationRecord
   has_many :letters
   has_many :hobbies, through: :hobby_tags
 
+  include PgSearch::Model
+  pg_search_scope :search_user,
+    against: [ :name, :gender, :age],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def inboxes
     Inbox.where(first_user: self).or(Inbox.where(second_user: self))
   end
