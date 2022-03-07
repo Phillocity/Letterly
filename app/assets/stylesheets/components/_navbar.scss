@@ -11,8 +11,17 @@
 }
 
 .nav-link:hover {
-  color: $letterly-light-blue;
-  opacity: 0.7
+  color: $letterly-light-yellow;
+}
+
+a {
+  color: $letterly-dark-blue;
+  text-decoration: none;
+}
+
+a:hover{
+  color: $letterly-light-yellow;
+  text-decoration: none;
 }
 
 .logo-left h1{
