@@ -5,7 +5,11 @@
       <div class="user-card">
         <div class="avatar-large">
           <img src=<%=user.avatar%>>
-        </div>
+          </div>
+              <div class="hobbies">
+          <% user.hobbies.each do |hobby|%>
+              <%= hobby.name %>
+          <% end %>
         <div class="card-info ">
           <h2><%=user.name%></h2>
           <h3><strong>Location: </strong><%=user.address%></h3>
