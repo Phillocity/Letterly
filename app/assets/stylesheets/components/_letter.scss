@@ -78,3 +78,32 @@ ol{
   color: #FFDE17;
   background-color: #191716;
 }
+
+
+.letter{
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+@media screen and (min-width: 1400px) {
+  .letter {
+      // width: 1370px;
+      margin-left: 350px;
+      margin-right: 350px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .letter {
+    // width: 1570px;
+    margin-left: 400px;
+    margin-right: 400px;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .letter {
+    // width: 1870px;
+    margin-left: 600px;
+    margin-right: 600px;
+  }
+}
