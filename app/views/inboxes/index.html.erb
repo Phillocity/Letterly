@@ -1,12 +1,10 @@
 <div class="gridify m-4">
 
   <% @me.inboxes.reverse.each do |inbox| %>
-  <%# <% receiver = inbox.first_user == current_user ? inbox.second_user : inbox.first_user%>
-
-    <div class="d-flex flex-column justify-content-center align-items-center text-center">
+     <div class="d-flex flex-column justify-content-center align-items-center text-center">
       <%= link_to pal_inbox_path(@me.id, inbox), class:"m-0 d-flex justify-content-center" do %>
-        <img class="avatar-large m-2" src=<%=@receiver.avatar%>>
-        <%= link_to "#{@receiver.name.upcase}", pal_inbox_path(@me.id, inbox), class:"h6 m-0 text-center"%>
+        <img class="avatar-large m-2" src=<%=inbox.second_user.avatar%>>
+        <%= link_to "#{inbox.second_user.name.upcase}", pal_inbox_path(@me.id, inbox), class:"h6 m-0 text-center"%>
         <% last_update = time_ago_in_words(inbox.letters.last.created_at, include_seconds: true) %>
         <p class="m-0"><%= "Last letter" %></p>
         <p><%= "#{last_update} ago" %></p>

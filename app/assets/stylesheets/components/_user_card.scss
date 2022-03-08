@@ -1,9 +1,9 @@
 .user.wrapper {
   padding: 1%;
   border-radius: 5px;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   transition: .3s;
 
@@ -18,10 +18,21 @@
     transition: .4s;
 
     .card-right {
+      width: 60%;
       margin-left: 4%;
+
       h3 {
         font-size: 1vw;
       }
+    }
+
+    .card-left {
+      width: 40%;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
   }
 
@@ -32,12 +43,37 @@
   }
 }
 
-.user.wrapper:hover{
+.user.wrapper:hover {
   transform: scale(1.1);
-  margin: 4% 3% !important;
+  margin: 6% 3% !important;
   transition: all .2s ease-in-out;
 }
 
-.list{
-  width: 50%;
+.seperate{
+  .list  {
+    width: 40%;
+  }
+
+  .mapboxgl-map{
+    transition: .4s;
+    margin-left: 1%;
+    height:80vh;
+    border-radius:20px;
+  }
+
+  .user.wrapper:hover ~ .mapboxgl-map{
+    transition: .4s;
+    height:20vh !important;
+  }
+}
+
+.seperate:hover{
+ .mapboxgl-map{
+    transition: .4s;
+    margin-left:3% !important;
+  }
+}
+
+.right-side{
+  width: 60%;
 }

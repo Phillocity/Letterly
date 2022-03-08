@@ -18,7 +18,6 @@ class LettersController < ApplicationController
     else
       render :new, notice: "Something went wrong. Try again."
     end
-
   end
 
   def edit
@@ -39,5 +38,4 @@ class LettersController < ApplicationController
     delivery_time_in_seconds = (distance / miles_per_hour) * 3600
     return delivery_time_in_seconds.to_i
   end
-
 end

@@ -12,8 +12,9 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/natalijastepurko/cl0gkjj8x000e14qjvmvzpftc"
-      // style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/shushyyy/cl0h3jc4k002014p97nd6sq3d",
+      pitch: 50, // pitch in degrees
+      bearing: -10, // bearing in degrees
     })
 
     this.#addMarkersToMap()
@@ -29,8 +30,8 @@ export default class extends Controller {
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
-      customMarker.style.width = "25px"
-      customMarker.style.height = "25px"
+      customMarker.style.width = "60px"
+      customMarker.style.height = "60px"
 
       // Pass the element as an argument to the new marker
       new mapboxgl.Marker(customMarker)
@@ -43,6 +44,6 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 0, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 100, maxZoom: 6, duration: 0 })
   }
 }
