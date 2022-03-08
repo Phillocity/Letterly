@@ -2,6 +2,7 @@ require 'date'
 
 class InboxesController < ApplicationController
   def index
+    # raise
     if current_user
       @me = current_user
     else
@@ -13,18 +14,16 @@ class InboxesController < ApplicationController
     end
 
     @me = current_user
+    @markers = []
 
     @me.inboxes.reverse.each do |inbox|
       @receiver = inbox.first_user == current_user ? inbox.second_user : inbox.first_user
-
-      @markers = [
-        {
-          lat: @receiver.latitude,
-          lng: @receiver.longitude,
-          info_window: render_to_string(partial: "inboxes_info_window", locals: { receiver: @receiver }),
-          image_url: helpers.asset_url("marker.png")
-        }
-      ]
+      @markers << {
+        lat: @receiver.latitude,
+        lng: @receiver.longitude,
+        info_window: render_to_string(partial: "inboxes_info_window", locals: { receiver: @receiver }),
+        image_url: helpers.asset_url("marker.png")
+      }
     end
   end
 
@@ -40,7 +39,7 @@ class InboxesController < ApplicationController
   def create
     @inbox = Inbox.new
     @inbox.first_user_id = current_user.id
-    @inbox.second_user_id = User.find(params[:user_id]).id
+    @inbox.second_user_id = User.find_by(id: params[:user_id]).nil? ? filter_existing(User.all).sample.id : User.find(params[:user_id]).id
     @inbox.save
     redirect_to new_inbox_letter_path(@inbox)
   end
@@ -49,5 +48,12 @@ class InboxesController < ApplicationController
     @inbox = Inbox.find(params[:id])
     @inbox.destroy
     redirect_to pals_path
+  end
+
+  private
+
+  def filter_existing(user_list)
+    exclusions = current_user.inboxes.collect(&:second_user).collect(&:id) << current_user.id
+    user_list.filter{ |user| exclusions.exclude?(user.id) }
   end
 end
