@@ -21,7 +21,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = user.find(params[:pal_id])
+  end
+
+  def update
+    @user = User.find(params[:pal_id])
+    @user.update(user_params)
+    redirect_to pal_inboxes_path, notice: 'Your information was successfully updated.'
+  end
+
   private
+
+  def user_params
+    params.require(:user).permit(:name, :address, :age, :gender, :description)
+  end
 
   def filter_existing(user_list)
     exclusions = current_user.inboxes.collect(&:second_user).collect(&:id) << current_user.id

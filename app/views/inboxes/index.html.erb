@@ -1,3 +1,6 @@
+<div class=" d-flex flex-row m-4">
+
+
 <div class="gridify m-4">
 
   <% @me.inboxes.reverse.each do |inbox| %>
@@ -17,3 +20,80 @@
 
 <div style="width: 100%; height: 600px;" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
   data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<% if params[:edit] %>
+
+  <div class="user wrapper-edit bg-dark m-2 p-3">
+    <div class="user-card">
+      <div class="card-left">
+        <div class="avatar-large">
+          <img src=<%=@me.avatar%>>
+        </div>
+        <div class="hobbies">
+          <% @me.hobbies.each do |hobby|%>
+          <%= hobby.name %>
+          <% end %>
+        </div>
+      </div>
+      <div class="card-right ">
+        <%= simple_form_for @me, url: pal_inboxes_path(@me), method: :patch do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?%>
+
+          <h3>Name: <%= f.input :name, placeholder: @me.name, label: false %></h3>
+          <h3><strong>Location: </strong><%= f.input :address, placeholder: @me.address, label: false %></h3>
+          <h3><strong>Age: </strong><%= f.input :age, placeholder: @me.age, label: false %></h3>
+          <h3><strong>Gender: </strong><%= f.input :gender, placeholder: @me.gender, label: false %></h3>
+          <%# <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </div>
+    </div>
+    <div>
+
+      <div class="user-card mt-3 w-100">
+        <p><%= f.input :description, placeholder: @me.description %></p>
+      </div>
+
+      <%= link_to 'Cancel', pal_inboxes_path(@me), class: "retro fader" %>
+      <button type="submit" class="retro-blue", method = "patch" >Submit</button>
+      <%# <%= f.button :submit, class: "retro fader", method: :patch %>
+      <% end %>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="user wrapper-edit bg-dark m-2 p-3">
+    <div class="user-card">
+      <div class="card-left">
+        <div class="avatar-large">
+          <img src=<%=@me.avatar%>>
+        </div>
+        <div class="hobbies">
+          <% @me.hobbies.each do |hobby|%>
+          <%= hobby.name %>
+          <% end %>
+        </div>
+      </div>
+      <div class="card-right ">
+        <h2><%=@me.name%></h2>
+        <h3><strong>Location: </strong><%=@me.address%></h3>
+        <h3><strong>Age: </strong><%=@me.age%></h3>
+        <h3><strong>Gender: </strong><%=@me.gender%></h3>
+      </div>
+    </div>
+    <div>
+
+      <div class="user-card mt-3">
+        <p><%= @me.description %></p>
+      </div>
+
+      <%# <%= link_to 'Edit', pal_inboxes_path(@me), method: :patch, class: "retro fader"  %>
+      <%= form_tag pal_inboxes_path(@me), id: "form", method: :get do %>
+      <%= hidden_field_tag "edit", "edit" %>
+      <button type="submit" class="retro fader">Edit</button>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+ </div>

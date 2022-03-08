@@ -2,6 +2,7 @@ require 'date'
 
 class InboxesController < ApplicationController
   def index
+    # raise
     if current_user
       @me = current_user
     else
@@ -13,18 +14,16 @@ class InboxesController < ApplicationController
     end
 
     @me = current_user
+    @markers = []
 
     @me.inboxes.reverse.each do |inbox|
       @receiver = inbox.first_user == current_user ? inbox.second_user : inbox.first_user
-
-      @markers = [
-        {
-          lat: @receiver.latitude,
-          lng: @receiver.longitude,
-          info_window: render_to_string(partial: "inboxes_info_window", locals: { receiver: @receiver }),
-          image_url: helpers.asset_url("marker.png")
-        }
-      ]
+      @markers << {
+        lat: @receiver.latitude,
+        lng: @receiver.longitude,
+        info_window: render_to_string(partial: "inboxes_info_window", locals: { receiver: @receiver }),
+        image_url: helpers.asset_url("marker.png")
+      }
     end
   end
 
