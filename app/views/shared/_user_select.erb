@@ -10,11 +10,16 @@
           </div>
           <div class="hobbies">
             <% user.hobbies.each do |hobby|%>
-            <%= hobby.name %>
+            <% if hobby.name.include? " " || "-" %>
+           <p class="two-word-tag"><%= hobby.name %></p>
+            <% else %>
+            <p class="tag"><%= hobby.name %></p>
+            <% end %>
             <% end %>
           </div>
         </div>
         <div class="card-right ">
+
           <h2><%=user.name%></h2>
           <h3><strong>Location: </strong><%=user.address%></h3>
           <h3><strong>Age: </strong><%=user.age%></h3>
@@ -35,7 +40,7 @@
   </div>
   <div class="right-side">
   <% if @users.size > 0  %>
-  <div style="height:80vh;
+  <div class="my-2" style="height:70vh;
   border-radius:20px" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="pk.eyJ1IjoibmF0YWxpamFzdGVwdXJrbyIsImEiOiJja3o4bW8zb2UweGNzMm9tdXp2dmJzZWkyIn0.z470pOfFM8IlVP_FRfyt6g">
   </div>

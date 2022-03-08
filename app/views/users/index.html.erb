@@ -1,23 +1,25 @@
 <div data-controller="search-users">
-  <%= simple_form_for :age, data: {search_users_target: 'formSlide'} do |f| %>
-  <%= f.input :age,
-              input_html: { type: 'range', min: '16', max: '100', step: 'any' },
-              value: params[:age],
-              data: { search_users_target: 'age',
-                             action: 'change->search-users#test'
-                     } %>
-  <% end %>
+
   <%= form_with url: pals_path, method: :get, html: { class:
     'mb-4', data: { search_users_target: 'form' } } do |f| %>
-  <%= f.text_field :query,
+      <%= f.label :age, "AGE LIMIT:", data: { search_users_target: 'ageLabel'} %>
+      <%= f.range_field :age, in: 16..100,
+              class: "form-control",
+              value: params[:age],
+              data: { search_users_target: 'inputAge', action: 'change->search-users#update change->search-users#changeAge'}
+               %>
+
+    <%= f.text_field :query,
                      class: "form-control",
-                     placeholder: 'Type a user name',
+                     placeholder: 'Search by name, hobby, age, gender or location!',
                      value: params[:query],
                      data: { search_users_target: 'input',
                              action: 'keyup->search-users#update'
                      } %>
+
+
   <% end %>
 
-<%= render "shared/user_select"%>
+  <%= render "shared/user_select"%>
 
 </div>

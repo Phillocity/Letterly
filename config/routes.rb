@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :inboxes, only: [:new, :create, :destroy] do
-    resources :letters, only: [:new, :create]
+    resources :letters, only: [:new, :create, :update]
   end
 
-  resources :letter, only: [:index, :show]
+  resources :letter, only: [:index, :show, :update]
 end

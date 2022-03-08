@@ -13,7 +13,10 @@ class User < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_user,
-                  against: %i[name gender age],
+                  against: %i[age name gender],
+                  associated_against: {
+                    hobbies: %i[name]
+                  },
                   using: {
                     tsearch: { prefix: true }
                   }

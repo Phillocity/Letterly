@@ -88,5 +88,7 @@ gem "turbolinks_render"
 # Mapbox
 gem "geocoder"
 
-# Jquery
-gem 'jquery-rails'
+# Background Jobs
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'redis'

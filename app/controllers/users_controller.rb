@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
   def index
-    if params[:query].present?
-      @users = filter_existing(User.search_user(params[:query]).order('RANDOM()')).first(5)
+    if params[:query].present? && params[:age].present?
+      @users = filter_existing(User.search_user(params[:query])).filter do |user|
+        user.age.between?(16, params[:age].to_i)
+      end.sample(5)
+    elsif params[:query].present?
+      @users = filter_existing(User.search_user(params[:query]))
+    elsif params[:age].present?
+      @users = User.all.filter { |user| user.age.between?(16, params[:age].to_i) }.sample(5)
     else
       @users = filter_existing(User.all.order('RANDOM()')).first(5)
     end
@@ -39,6 +45,6 @@ class UsersController < ApplicationController
 
   def filter_existing(user_list)
     exclusions = current_user.inboxes.collect(&:second_user).collect(&:id) << current_user.id
-    user_list.filter{ |user| exclusions.exclude?(user.id) }
+    user_list.filter { |user| exclusions.exclude?(user.id) }
   end
 end
