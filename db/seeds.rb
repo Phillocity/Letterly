@@ -49,14 +49,18 @@ puts "created hobbies"
     description: Description::DESCRIPTION.sample,
     age:rand(18..40))
 
-    puts "created user number #{user.id}"
+    puts "Created user number #{user.id}"
 
     hobbies = []
-    10.times do
-      hobbies << Hobby.create!(name: Faker::Hobby.activity)
+    counter = 0
+    while counter < 10
+      hobby = Faker::Hobby.activity
+      if hobby.exclude?" "
+        puts "Added #{hobby}"
+        hobbies << Hobby.create!(name: Faker::Hobby.activity)
+        counter += 1
+      end
     end
-
-    puts hobbies.sample.name
 
     3.times do
       HobbyTag.create!(hobby_id: hobbies.sample.id, user_id: user.id)
