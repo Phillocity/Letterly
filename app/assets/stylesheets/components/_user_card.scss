@@ -45,20 +45,35 @@
 
 .user.wrapper:hover {
   transform: scale(1.1);
-  margin: 4% 1% !important;
+  margin: 6% 3% !important;
   transition: all .2s ease-in-out;
 }
 
 .seperate{
-  .list {
+  .list  {
     width: 40%;
   }
 
   .mapboxgl-map{
+    transition: .4s;
     margin-left: 1%;
     height:80vh;
     border-radius:20px;
   }
 
+  .user.wrapper:hover ~ .mapboxgl-map{
+    transition: .4s;
+    height:20vh !important;
+  }
+}
 
+.seperate:hover{
+ .mapboxgl-map{
+    transition: .4s;
+    margin-left:3% !important;
+  }
+}
+
+.right-side{
+  width: 60%;
 }

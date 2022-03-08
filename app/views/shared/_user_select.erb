@@ -1,5 +1,5 @@
-<div class="seperate d-flex" data-search-users-target="list">
-  <div class="list">
+<div class="seperate d-flex flex-row justify-content-center align-content-center" data-search-users-target="list">
+  <div class="list <%="d-none" if @users.size.zero?  %>">
     <% @users.each do |user|%>
     <div class="user wrapper bg-dark m-2 p-3" data-controller="user-card" data-search-user-target="list"
       data-action="click->user-card#revealContent">
@@ -33,10 +33,14 @@
     </div>
     <%end%>
   </div>
-  <div class="" style="margin-left: 1%;
-  width: 60%;
-  height:80vh;
+  <div class="right-side">
+  <% if @users.size > 0  %>
+  <div style="height:80vh;
   border-radius:20px" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="pk.eyJ1IjoibmF0YWxpamFzdGVwdXJrbyIsImEiOiJja3o4bW8zb2UweGNzMm9tdXp2dmJzZWkyIn0.z470pOfFM8IlVP_FRfyt6g">
   </div>
+  </div>
+  <% else %>
+  <h1 class="text-center mt-5 p-5">Sorry, no results found. Please try again!</h1>
+  <% end %>
 </div>

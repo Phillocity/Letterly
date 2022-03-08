@@ -21,11 +21,6 @@ export default class extends Controller {
     this.#fitMapToMarkers()
   }
 
-  check(){
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
-  }
-
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)

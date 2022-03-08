@@ -8,6 +8,10 @@ class InboxesController < ApplicationController
       redirect_to new_user_session_path, notice: 'You are not logged in.'
     end
 
+    current_user.inboxes.map do |inbox|
+      Inbox.destroy(inbox.id) if inbox.letters.length.zero?
+    end
+
     @me = current_user
 
     @me.inboxes.reverse.each do |inbox|
