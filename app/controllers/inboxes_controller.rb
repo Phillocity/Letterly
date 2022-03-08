@@ -40,7 +40,7 @@ class InboxesController < ApplicationController
   def create
     @inbox = Inbox.new
     @inbox.first_user_id = current_user.id
-    @inbox.second_user_id = User.find(params[:user_id]).id
+    @inbox.second_user_id = User.find_by(id: params[:user_id]).nil? ? filter_existing(User.all).sample.id : User.find(params[:user_id]).id
     @inbox.save
     redirect_to new_inbox_letter_path(@inbox)
   end
@@ -49,5 +49,12 @@ class InboxesController < ApplicationController
     @inbox = Inbox.find(params[:id])
     @inbox.destroy
     redirect_to pals_path
+  end
+
+  private
+
+  def filter_existing(user_list)
+    exclusions = current_user.inboxes.collect(&:second_user).collect(&:id) << current_user.id
+    user_list.filter{ |user| exclusions.exclude?(user.id) }
   end
 end
