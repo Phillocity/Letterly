@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
   def index
     if params[:query].present?
-      @users = filter_existing(User.all).search_user(params[:query]).order('RANDOM()').first(5)
+      @users = filter_existing(User.search_user(params[:query]).order('RANDOM()')).first(5)
     else
       @users = filter_existing(User.all.order('RANDOM()')).first(5)
     end
-
-
 
     @markers = @users.map do |user|
       {
