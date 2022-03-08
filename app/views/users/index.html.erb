@@ -11,7 +11,7 @@
 
     <%= f.text_field :query,
                      class: "form-control",
-                     placeholder: 'Search by keyword',
+                     placeholder: 'Search by name, hobby, age, gender or location!',
                      value: params[:query],
                      data: { search_users_target: 'input',
                              action: 'keyup->search-users#update'
