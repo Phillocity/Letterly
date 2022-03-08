@@ -1,20 +1,20 @@
-<%= link_to "Reply", new_inbox_letter_path(@inbox), class:"retro-blue m-4"%>
-<ol>
-<% counter = 1 %>
-<% @inbox.letters.reverse.each do |letter| %>
-<div class="accordion" id="accordionExample">
+<%= link_to "Reply", new_inbox_letter_path(@inbox), class:"retro-blue m-4"%> <ol><% counter = 1 %><% @inbox.letters.reverse.each do |letter| %> <div class="accordion" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="heading<%=counter%>">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=counter%>" aria-expanded="true" aria-controls="collapse<%=counter%>">
-        <%=  letter.sender == current_user ? "Sent to #{letter.receiver.name}" : "From Sender: #{letter.sender.name}" %> </button>
+          <div class="inbox-container">
+            <div class="image">
+              <img class="avatar-sm" src=<%=letter.sender.avatar%>>
+            </div>
+            <br>
+            <li class="inbox-thread"><%= letter.sender == current_user ? "Sent to #{letter.receiver.name}" : "From Sender: #{letter.sender.name}" %> </li>
+          </div>
       </h2>
       <div id="collapse<%=counter%>" class="accordion-collapse collapse <%="show" if counter == 1 %>" aria-labelledby="heading<%=counter%>" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <div class="inbox-container">
-            <img class="avatar-sm" src=<%=letter.sender.avatar%>>
-            <br>
-            <li class="inbox-thread" data-bs-toggle="modal" data-bs-target="#exampleModal"><%= letter.sender == current_user ? "Sent to #{letter.receiver.name}" : "From Sender: #{letter.sender.name}" %> </li>
-          </div>
+          <strong><%=letter.content %> </strong>
+          <br>
+          <button class="inbox-thread retro-blue m-4" data-bs-toggle="modal" data-bs-target="#exampleModal"> Full Screen </button>
         </div>
       </div>
     </div>
@@ -33,6 +33,4 @@
           </div>
         </div>
       </div>
-    </div>
-    <% counter += 1 %>
-    <br><% end %> </ol>
+    </div><% counter += 1 %> <br><% end %> </ol>
