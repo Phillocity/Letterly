@@ -4,7 +4,7 @@
 
 .gridify {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 42px 60px;
   padding: 30px;
   background-color: #fff;
@@ -16,4 +16,3 @@
     color: $letterly-grey;
   }
 }
-

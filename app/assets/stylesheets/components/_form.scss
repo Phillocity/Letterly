@@ -36,3 +36,10 @@
   margin:auto;
   padding: 20px 0
 }
+
+.user_description {
+  width: 100%;
+  textarea {
+    min-height: 200px;
+  }
+}
