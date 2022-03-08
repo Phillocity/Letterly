@@ -78,3 +78,7 @@ cursor: pointer;
 //   text-decoration: underline;
 //   text-decoration-color: rgb(254, 231, 70);
 // }
+.accordion-button:not(.collapsed) {
+  color: #FFDE17;
+  background-color: #191716;
+}
