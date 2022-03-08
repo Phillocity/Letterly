@@ -48,31 +48,27 @@ ol{
   img{
     min-width: 15px;
     max-width: 15px;
+    margin: 100px;
   }
+}
+
+.image{
+  padding-right: 10px;
 }
 
 .inbox-container{
   display: flex;
-  padding-right: 20px;
 
 }
 
-.inbox-thread{
+// .inbox-thread{
 
-  background-image: linear-gradient(120deg, rgb(254, 231, 70) 0%, #A1D4ED 100%);
-  background-repeat: no-repeat;
+//   background-image: linear-gradient(120deg, rgb(254, 231, 70) 0%, #A1D4ED 100%);
+//   background-repeat: no-repeat;
 
-background-size: 100% 0.2em;
-background-position: 0 100%;
-transition: background-size 0.25s ease-in;
-width: 300px;
-}
 
-.inbox-thread:hover {
+// }
 
-background-size: 100% 88%;
-cursor: pointer;
-}
 
 // li:hover{
 //   text-decoration: underline;
@@ -81,4 +77,33 @@ cursor: pointer;
 .accordion-button:not(.collapsed) {
   color: #FFDE17;
   background-color: #191716;
+}
+
+
+.letter{
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+@media screen and (min-width: 1400px) {
+  .letter {
+      // width: 1370px;
+      margin-left: 350px;
+      margin-right: 350px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .letter {
+    // width: 1570px;
+    margin-left: 400px;
+    margin-right: 400px;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .letter {
+    // width: 1870px;
+    margin-left: 600px;
+    margin-right: 600px;
+  }
 }

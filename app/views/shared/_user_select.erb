@@ -10,11 +10,16 @@
           </div>
           <div class="hobbies">
             <% user.hobbies.each do |hobby|%>
-            <%= hobby.name %>
+            <% if hobby.name.include? " " || "-" %>
+           <p class="two-word-tag"><%= hobby.name %></p>
+            <% else %>
+            <p class="tag"><%= hobby.name %></p>
+            <% end %>
             <% end %>
           </div>
         </div>
         <div class="card-right ">
+
           <h2><%=user.name%></h2>
           <h3><strong>Location: </strong><%=user.address%></h3>
           <h3><strong>Age: </strong><%=user.age%></h3>
