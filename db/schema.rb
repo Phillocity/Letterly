@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2022_03_09_125904) do
     t.boolean "bottled"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "arrival_time"
+    t.time "arrival_time"
     t.index ["inbox_id"], name: "index_letters_on_inbox_id"
     t.index ["receiver_id"], name: "index_letters_on_receiver_id"
     t.index ["sender_id"], name: "index_letters_on_sender_id"
