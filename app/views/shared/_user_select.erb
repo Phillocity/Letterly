@@ -5,16 +5,14 @@
       data-action="click->user-card#revealContent">
       <div class="user-card">
         <div class="card-left">
-          <div class="avatar-large">
+          <div class="avatar-large mb-3">
             <img src=<%=user.avatar%>>
           </div>
           <div class="hobbies">
             <% user.hobbies.each do |hobby|%>
-            <% if hobby.name.include? " " || "-" %>
-           <p class="two-word-tag"><%= hobby.name %></p>
-            <% else %>
+
             <p class="tag"><%= hobby.name %></p>
-            <% end %>
+
             <% end %>
           </div>
         </div>

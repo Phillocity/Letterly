@@ -12,7 +12,7 @@ class LettersController < ApplicationController
     @letter.sender_id = current_user.id
     @letter.receiver_id = @inbox.first_user_id == current_user.id ? @inbox.second_user_id : @inbox.first_user_id
     @letter.delivery_time = delivery_in_seconds(@letter.sender, @letter.receiver)
-    LetterSenderJob.perform_later
+
     if @letter.save!
       redirect_to pals_path, notice: "Your letter is being sent."
     else
