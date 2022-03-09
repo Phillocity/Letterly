@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2022_03_09_091241) do
     t.bigint "receiver_id"
     t.bigint "inbox_id"
     t.text "content"
-    t.integer "delivery_time"
+    t.time "delivery_time"
     t.string "subject"
     t.boolean "bottled"
     t.datetime "created_at", precision: 6, null: false
