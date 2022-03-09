@@ -1,5 +1,6 @@
 .navbar{
   z-index: 1020;
+  box-shadow: 3px 1px 11px rgba(0, 0, 0, 0.164);
 }
 
 .navbar-brand img {
@@ -49,7 +50,7 @@ a:hover{
 .halftone:after {
   content: "LETTERLY";
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHElEQVQYV2NUVFT8f//+fUYGBgYGMAEDcA5IBQCKJQVmn76DhAAAAABJRU5ErkJggg==) repeat;
-  left: calc(50% + -331px);
+  left: calc(50% + -18vw);
   position: absolute;
   top: calc(50% + 0px);
   transform: translate(-50%, -50%);

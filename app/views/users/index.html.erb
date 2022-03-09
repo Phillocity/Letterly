@@ -2,9 +2,9 @@
 
   <%= form_with url: pals_path, method: :get, html: { class:
     'mb-4', data: { search_users_target: 'form' } } do |f| %>
-      <%= f.label :age, "AGE LIMIT:", data: { search_users_target: 'ageLabel'} %>
+      <%= f.label :age, "AGE LIMIT:", class:"h4 mt-4" ,data: { search_users_target: 'ageLabel'} %>
       <%= f.range_field :age, in: 16..100,
-              class: "form-control",
+              class: "form-control my-3",
               value: params[:age],
               data: { search_users_target: 'inputAge', action: 'change->search-users#update change->search-users#changeAge'}
                %>

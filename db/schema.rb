@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_091241) do
+ActiveRecord::Schema.define(version: 2022_03_09_125904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2022_03_09_091241) do
     t.boolean "bottled"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.time "arrival_time"
     t.index ["inbox_id"], name: "index_letters_on_inbox_id"
     t.index ["receiver_id"], name: "index_letters_on_receiver_id"
     t.index ["sender_id"], name: "index_letters_on_sender_id"
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 2022_03_09_091241) do
     t.float "longitude"
     t.text "avatar"
     t.string "gender"
+    t.integer "distance_from"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

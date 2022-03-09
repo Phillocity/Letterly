@@ -63,7 +63,12 @@ puts "created hobbies"
     end
 
     3.times do
-      HobbyTag.create!(hobby_id: hobbies.sample.id, user_id: user.id)
+      hobby = hobbies.sample.id
+      hobbytag = HobbyTag.find_by(hobby: hobby, user: user.id)
+      unless hobbytag
+        HobbyTag.create!(hobby_id: hobby, user_id: user.id)
+      end
+      puts "Hobby tag created"
     end
 
     user1 = User.create(name:"#{Faker::Name.unique.first_name} #{Faker::Name.middle_name}",
@@ -78,7 +83,12 @@ puts "created hobbies"
       puts "created user number #{user1.id}"
 
       3.times do
-        HobbyTag.create!(hobby_id: hobbies.sample.id, user_id: user1.id)
+        hobby = hobbies.sample.id
+        hobbytag = HobbyTag.find_by(hobby: hobby, user: user1.id)
+        unless hobbytag
+          HobbyTag.create!(hobby_id: hobby, user_id: user1.id)
+        end
+        puts "Hobby tag created"
       end
 
   inbox = Inbox.new(first_user: user, second_user: user1)

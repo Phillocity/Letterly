@@ -6,11 +6,11 @@
 
     <div class="field">
       <%= f.label :subject, "Letter title" %>
-      <%= f.text_field :subject, placeholder: "What is your letter about",class:"w-100 border-0 p-2"%>
+      <%= f.text_field :subject, placeholder: "What is your letter about",class:"form-control w-100 border-0 p-2"%>
     </div>
     <div class="field">
       <%= f.label :content, "Letter text" %>
-      <%= f.rich_text_area :content, placeholder: "Write a letter - share a story", class:"p-2" %>
+      <%= f.rich_text_area :content, placeholder: "Write a letter - share a story", class:"form-control p-2" %>
     </div>
     <div class="actions">
       <button type="submit" class="retro-blue">Send a letter!</button>

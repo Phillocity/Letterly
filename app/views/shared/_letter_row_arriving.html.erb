@@ -1,0 +1,40 @@
+<li>
+<div data-controller="refresher" data-content-loader-url-value="/messages.html" data-content-loader-refresh-interval-value="1000">
+  <div class="accordion m-4" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading<%=%>">
+        <button class="accordion-button <%="collapsed" if index > 0 %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>"
+          aria-expanded="true" aria-controls="collapse<%=index%>">
+          <div class="inbox-container d-flex flex-row justify-content-center align-items-center">
+            <div class="image">
+              <img class="avatar-sm" src=<%=letter.sender.avatar%>>
+            </div>
+            <br>
+            <li class="inbox-thread">
+              <% if current_user == letter.sender %>
+              <h2>To: <strong>(Pal) <%=letter.receiver.name%></strong></h2>
+              <% else %>
+              <h2>To: <strong>(Me) <%=letter.receiver.name%></strong></h2>
+              <% end %>
+            </li>
+          </div>
+      </h2>
+      <div id="collapse<%=index%>" class="accordion-collapse collapse <%="show" if index == 0 %>"
+        aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
+        <div class="accordion-body d-flex justify-content-center align-items-center">
+          <strong>
+
+          <% t = letter.arrival_time - DateTime.now
+              mm, ss = t.divmod(60)            #=> [4515, 21]
+              hh, mm = mm.divmod(60)           #=> [75, 15]
+              dd, hh = hh.divmod(24)           #=> [3, 3] %>
+
+            <i><h3><%=  "#{dd} days, #{hh} hours, #{mm} minutes and #{ss.to_i} seconds" %></h3></i>
+          </strong>
+          <br>
+        </div>
+      </div>
+    </div>
+    <br>
+    </div>
+</li>

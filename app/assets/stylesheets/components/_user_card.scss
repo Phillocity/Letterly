@@ -1,6 +1,6 @@
 .user.wrapper {
   padding: 1%;
-  border-radius: 5px;
+  border-radius: $radius;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,7 @@
     align-items: center;
     background-color: $letterly-light-yellow;
     padding: 1% 2%;
-    border-radius: 5px;
+    border-radius: $radius;
     width: 99%;
     transition: .4s;
 
@@ -47,6 +47,7 @@
   transform: scale(1.1);
   margin: 6% 3% !important;
   transition: all .2s ease-in-out;
+  cursor: pointer;
 }
 
 .seperate {
@@ -64,18 +65,18 @@
     z-index: 1020;
   }
 
-  .user.wrapper:hover~.mapboxgl-map {
-    transition: .4s;
-    height: 20vh !important;
-  }
+  // .user.wrapper:hover~.mapboxgl-map {
+  //   transition: .4s;
+  //   height: 20vh !important;
+  // }
 }
 
-.seperate:hover {
-  .mapboxgl-map {
-    transition: .4s;
-    margin-left: 3% !important;
-  }
-}
+// .seperate:hover {
+//   .mapboxgl-map {
+//     transition: .4s;
+//     margin-left: 3% !important;
+//   }
+// }
 
 .right-side {
   width: 60%;

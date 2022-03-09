@@ -1,0 +1,46 @@
+<li>
+  <div class="accordion m-4" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading<%=%>">
+        <button class="accordion-button <%="collapsed" if index > 0 %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=index%>"
+          aria-expanded="true" aria-controls="collapse<%=index%>">
+          <div class="inbox-container d-flex flex-row justify-content-center align-items-center">
+            <div class="image">
+              <img class="avatar-sm" src=<%=letter.sender.avatar%>>
+            </div>
+            <br>
+            <li class="inbox-thread">
+              <% if current_user == letter.sender %>
+              <h2>To: <strong>(Pal) <%=letter.receiver.name%></strong></h2>
+              <% else %>
+              <h2>To: <strong>(Me) <%=letter.receiver.name%></strong></h2>
+              <% end %>
+            </li>
+          </div>
+      </h2>
+      <div id="collapse<%=index%>" class="accordion-collapse collapse <%="show" if index == 0 %>"
+        aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
+        <div class="accordion-body d-flex flex-column justify-content-center align-items-center">
+          <strong> <%=letter.content.to_plain_text.truncate(1400)%> </strong>
+          <br>
+          <button class="inbox-thread retro-blue m-4 w-50" data-bs-toggle="modal" data-bs-target="#exampleModal<%=index%>"> Full Screen</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal<%=index%>" tabindex="-1" aria-labelledby="exampleModalLabel<%=index%>" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title letter-title letter" id="exampleModalLabel<%=index%>"><strong>Subject:</strong> <%= letter.subject.titleize %> </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body letter-body letter">
+            <strong style="white-space: pre-line"><%=letter.content %> </strong>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="retro" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    <br>
+    </li>

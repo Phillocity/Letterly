@@ -12,15 +12,19 @@
   }
 }
 
+.form-control {
+  height: 6vmin;
+}
+
 .form-card {
   background-color: white;
-  border-radius: 5px;
+  border-radius: $radius;
   margin: auto auto 20px auto;
   padding: 20px;
 }
 
 .form-inputs {
-  border-radius: 5px;
+  border-radius: $radius;
 }
 
 .links {
