@@ -1,7 +1,13 @@
 <%= link_to "Reply", new_inbox_letter_path(@inbox), class:"retro-blue m-4"%>
 <ol class="p-0">
-  <% counter = 1 %>
   <% @inbox.letters.reverse.each_with_index do |letter, index| %>
-    <%= render "shared/letter_row", letter: letter, index: index%>
-  <% end %>
+  <div data-controller="refresher" data-refresher-url-value="/messages.html" data-refresher-refresh-interval-value="1000">
+    <% arrival_time =  DateTime.now <= letter.arrival_time%>
+      <% if !letter.arrival_time.nil? && arrival_time %>
+          <%= render "shared/letter_row_arriving", letter: letter, index: index%>
+      <% else %>
+        <%= render "shared/letter_row", letter: letter, index: index%>
+      <% end %>
+    <% end %>
+  </div>
 </ol>

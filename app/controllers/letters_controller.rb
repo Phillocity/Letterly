@@ -1,4 +1,5 @@
 class LettersController < ApplicationController
+
   def new
     @letter = Letter.new
     @inbox = Inbox.find(params[:inbox_id])
@@ -12,7 +13,7 @@ class LettersController < ApplicationController
     @letter.sender_id = current_user.id
     @letter.receiver_id = @inbox.first_user_id == current_user.id ? @inbox.second_user_id : @inbox.first_user_id
     @letter.delivery_time = delivery_in_seconds(@letter.sender, @letter.receiver)
-    @letter.arrival_time = (DateTime.now + @letter.delivery_time.seconds).at_beginning_of_hour
+    @letter.arrival_time = (DateTime.now + @letter.delivery_time.seconds)
 
     if @letter.save!
       redirect_to pals_path, notice: "Your letter is being sent."
