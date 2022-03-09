@@ -1,24 +1,29 @@
-<div class=" d-flex flex-row m-4">
+<div class=" d-flex flex-row my-4 top-container">
   <div class="w-50">
     <% if params[:edit] %>
 
-      <div class="user wrapper-edit bg-dark mx-2 p-3"  style="position: sticky; top: 176px; ">
+       <div class="user wrapper-edit bg-dark mr-2 p-3" style="border-radius: 20px; height: fit-content; margin-right: 8px;">   <%# style="position: sticky; top: 176px; " %>
         <div class="user-card">
           <div class="card-left">
             <div class="avatar-large mb-3">
               <img src=<%=@me.avatar%>>
             </div>
-            <div class="hobbies">
-              <% @me.hobbies.each do |hobby|%>
-              <div class="tag"><%= hobby.name %></div>
+              <%= form_tag pal_update_avatar_path(@me), id: "form",class: "d-flex justify-content-center", method: :patch do%>
+                <%= hidden_field_tag :pal_id, @me %>
+                <button type="submit" class="retro fader">Change avatar</button>
               <% end %>
-            </div>
+              <%# <%= link_to "Change avatar", pal_update_avatar_path(@me), class: "retro fader w-50", method: :patch  %>
           </div>
           <div class="card-right ">
             <%= simple_form_for @me, url: pal_inboxes_path(@me), method: :patch do |f| %>
               <%= f.error_notification %>
               <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?%>
 
+              <div class="hobbies" style="padding: 10px">
+                <% @me.hobbies.each do |hobby|%>
+                <div class="tag"><%= hobby.name%></div>
+                <% end %>
+              </div>
               <h3>Name: <%= f.input :name, placeholder: @me.name, label: false %></h3>
               <h3><strong>Location: </strong><%= f.input :address, placeholder: @me.address, label: false %></h3>
               <h3><strong>Age: </strong><%= f.input :age, placeholder: @me.age, label: false %></h3>
@@ -27,13 +32,12 @@
           </div>
         </div>
         <div class="w-100">
-
-          <div class="user-card mt-3 w-100">
-            <p><%= f.input :description, class:"", placeholder: @me.description %></p>
+          <div class="user-card-description mt-3 w-100" style="border-radius: 20px; height: fit-content;">
+            <p><%= f.input :description, placeholder: @me.description %></p>
           </div>
           <div class="wrapping d-flex flex-row w-100 justify-content-between">
-          <%= link_to 'Cancel', pal_inboxes_path(@me), class: "retro fader", style: "width: 35%;" %>
-          <button type="submit" style="width: 35%;" class="retro-blue", method = "patch" >Submit</button>
+          <%= link_to 'Cancel', pal_inboxes_path(@me), class: "retro fader", style: "width: 35%; margin-top: 10px;" %>
+          <button type="submit" style="width: 35%; margin-top: 10px;" class="retro-blue", method = "patch" >Submit</button>
           <%# <%= f.button :submit, class: "retro fader", method: :patch %>
           <% end %>
           </div>
@@ -42,15 +46,15 @@
 
     <% else %>
 
-      <div class="user wrapper-edit bg-dark mx-2 p-3" style="position: sticky; top: 176px; ">
+      <div class="user wrapper-edit bg-dark p-3">
         <div class="user-card">
           <div class="card-left">
-            <div class="avatar-large">
+            <div class="avatar-large mb-3">
               <img src=<%=@me.avatar%>>
             </div>
-            <div class="hobbies">
+              <div class="hobbies">
               <% @me.hobbies.each do |hobby|%>
-              <%= hobby.name %>
+              <div class="tag"><%= hobby.name %></div>
               <% end %>
             </div>
           </div>
@@ -63,11 +67,12 @@
         </div>
         <div>
 
-          <div class="user-card mt-3">
+          <div class="user-card-description mt-3 overflow-auto">
             <p><%= @me.description %></p>
           </div>
 
           <%# <%= link_to 'Edit', pal_inboxes_path(@me), method: :patch, class: "retro fader"  %>
+
           <%= form_tag pal_inboxes_path(@me), id: "form",class: "d-flex justify-content-center", method: :get do %>
           <%= hidden_field_tag "edit", "edit" %>
           <button type="submit" class="retro fader w-50">Edit</button>
@@ -80,24 +85,28 @@
 
 
   <div class="w-50">
-    <div style="border-radius:20px; width: 100%; height: 300px;" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>" data-mapbox-api-key-value="pk.eyJ1Ijoic2h1c2h5eXkiLCJhIjoiY2wwZ2kyb2M4MTJ1bjNqbXpleTRyMWp6MCJ9.yukzCb-0A-OGU2rz-1YkWw"></div>
-<%# <%= ENV['MAPBOX_API_KEY'] %>
-    <div class="gridify mt-2">
 
-      <% @me.inboxes.reverse.each do |inbox| %>
-        <div class="d-flex flex-column justify-content-center align-items-center text-center">
-          <%= link_to pal_inbox_path(@me.id, inbox), class:"m-0 d-flex justify-content-center" do %>
-            <img class="avatar-large m-2" src=<%=inbox.second_user.avatar%>>
-            <%= link_to "#{inbox.second_user.name.upcase}", pal_inbox_path(@me.id, inbox), class:"h6 m-0 text-center"%>
-            <% last_update = time_ago_in_words(inbox.letters.last.created_at, include_seconds: true) %>
-            <p class="m-0"><%= "Last letter" %></p>
-            <p><%= "#{last_update} ago" %></p>
-            <% end %>
-        </div>
+    <div class="user wrapper-edit bg-dark ml-2 px-3" style="margin-left: 8px">
 
-      <% end %>
+      <div class="gridify overflow-auto my-3" >
 
+        <% @me.inboxes.reverse.each do |inbox| %>
+          <div class="d-flex flex-column justify-content-center align-items-center text-center">
+            <%= link_to pal_inbox_path(@me.id, inbox), class:"m-0 d-flex justify-content-center" do %>
+              <img class="avatar-large m-2" src=<%=inbox.second_user.avatar%>>
+              <%= link_to "#{inbox.second_user.name.upcase}", pal_inbox_path(@me.id, inbox), class:"h6 m-0 text-center"%>
+              <% last_update = time_ago_in_words(inbox.letters.last.created_at, include_seconds: true) %>
+              <p class="m-0"><%= "Last letter" %></p>
+              <p><%= "#{last_update} ago" %></p>
+              <% end %>
+          </div>
+
+        <% end %>
+
+      </div>
     </div>
-
   </div>
 </div>
+
+<div class="my-1" style="border-radius:20px; width: 100%; height: 600px;" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>" data-mapbox-api-key-value="pk.eyJ1Ijoic2h1c2h5eXkiLCJhIjoiY2wwZ2kyb2M4MTJ1bjNqbXpleTRyMWp6MCJ9.yukzCb-0A-OGU2rz-1YkWw"></div>
+<%# <%= ENV['MAPBOX_API_KEY'] %>

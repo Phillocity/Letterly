@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index], path: :pals, as: :pals do
     # get '/inboxes/edit', to: 'users#edit'
     patch '/inboxes', to: 'users#update'
+    patch '/inboxes/avatar', to: 'users#update_avatar', as: :update_avatar
     resources :inboxes, only: [:index, :show]
   end
 
