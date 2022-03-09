@@ -37,10 +37,18 @@ class UsersController < ApplicationController
     redirect_to pal_inboxes_path, notice: 'Your information was successfully updated.'
   end
 
+  def update_avatar
+    @user = User.find(params[:pal_id])
+    randomizer = ('a'..'z').to_a
+    @user.avatar = "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg"
+    @user.save
+    redirect_to request.referrer
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :address, :age, :gender, :description)
+    params.require(:user).permit(:name, :address, :age, :gender, :description, :avatar)
   end
 
   def filter_existing(user_list)

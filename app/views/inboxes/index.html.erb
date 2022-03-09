@@ -1,20 +1,25 @@
-<div class=" d-flex flex-row my-4" style="height: 550px;">
+<div class=" d-flex flex-row my-4 top-container">
   <div class="w-50">
     <% if params[:edit] %>
 
-       <div class="user wrapper-edit bg-dark mr-2 px-3" style="border-radius: 20px; height: 550px; margin-right: 8px">   <%# style="position: sticky; top: 176px; " %>
-        <div class="user-card overflow-auto" style="border-radius: 20px; height: 550px;">
+       <div class="user wrapper-edit bg-dark mr-2 p-3" style="border-radius: 20px; height: fit-content; margin-right: 8px;">   <%# style="position: sticky; top: 176px; " %>
+        <div class="user-card">
           <div class="card-left">
             <div class="avatar-large mb-3">
               <img src=<%=@me.avatar%>>
             </div>
+              <%= form_tag pal_update_avatar_path(@me), id: "form",class: "d-flex justify-content-center", method: :patch do%>
+                <%= hidden_field_tag :pal_id, @me %>
+                <button type="submit" class="retro fader">Change avatar</button>
+              <% end %>
+              <%# <%= link_to "Change avatar", pal_update_avatar_path(@me), class: "retro fader w-50", method: :patch  %>
           </div>
           <div class="card-right ">
             <%= simple_form_for @me, url: pal_inboxes_path(@me), method: :patch do |f| %>
               <%= f.error_notification %>
               <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?%>
 
-              <div class="hobbies">
+              <div class="hobbies" style="padding: 10px">
                 <% @me.hobbies.each do |hobby|%>
                 <div class="tag"><%= hobby.name%></div>
                 <% end %>
@@ -28,12 +33,12 @@
         </div>
         <div class="w-100">
 
-          <div class="user-card mt-3 w-100 overflow-auto" style="border-radius: 20px;">
+          <div class="user-card-description mt-3 w-100" style="border-radius: 20px; height: fit-content;">
             <p><%= f.input :description, placeholder: @me.description %></p>
           </div>
           <div class="wrapping d-flex flex-row w-100 justify-content-between">
-          <%= link_to 'Cancel', pal_inboxes_path(@me), class: "retro fader", style: "width: 35%;" %>
-          <button type="submit" style="width: 35%;" class="retro-blue", method = "patch" >Submit</button>
+          <%= link_to 'Cancel', pal_inboxes_path(@me), class: "retro fader", style: "width: 35%; margin-top: 10px;" %>
+          <button type="submit" style="width: 35%; margin-top: 10px;" class="retro-blue", method = "patch" >Submit</button>
           <%# <%= f.button :submit, class: "retro fader", method: :patch %>
           <% end %>
           </div>
@@ -42,8 +47,8 @@
 
     <% else %>
 
-      <div class="user wrapper-edit bg-dark p-3" style="border-radius: 20px; height: 550px; margin-right: 8px">
-        <div class="user-card" style="border-radius: 20px; height: 550px;">
+      <div class="user wrapper-edit bg-dark p-3">
+        <div class="user-card">
           <div class="card-left">
             <div class="avatar-large mb-3">
               <img src=<%=@me.avatar%>>
@@ -63,11 +68,12 @@
         </div>
         <div>
 
-          <div class="user-card mt-3 overflow-auto" style="border-radius: 20px; max-height: 200px;">
+          <div class="user-card-description mt-3 overflow-auto">
             <p><%= @me.description %></p>
           </div>
 
           <%# <%= link_to 'Edit', pal_inboxes_path(@me), method: :patch, class: "retro fader"  %>
+
           <%= form_tag pal_inboxes_path(@me), id: "form",class: "d-flex justify-content-center", method: :get do %>
           <%= hidden_field_tag "edit", "edit" %>
           <button type="submit" class="retro fader w-50">Edit</button>
@@ -81,7 +87,7 @@
 
   <div class="w-50">
 
-    <div class="user wrapper-edit bg-dark ml-2 px-3" style="border-radius: 20px; height: 550px; margin-left: 8px">
+    <div class="user wrapper-edit bg-dark ml-2 px-3" style="margin-left: 8px">
 
       <div class="gridify overflow-auto my-3" >
 
