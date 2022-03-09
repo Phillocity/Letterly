@@ -3,58 +3,51 @@
     <div class="typing-header">
       <h1>Write a letter. Share a story.</h1>
     </div>
-    <div class="cta-buttons d-flex justify-content-evenly ">
-    <%= link_to "Send a Letter", pals_path, class: "retro fader px-5 d-flex align-items-center" %>
-    <%# <%= link_to "Message in a Bottle", pals_path, class: "retro-blue mx-5 p-4" %> %
-      <%= form_tag inboxes_path, id: "form", method: :post do %>
-      <button type="submit" name="bottled" value="true" class="retro-blue mx-5 p-4">Message in a Bottle</button>
-      <% end %>
+    <div class="cta-buttons d-flex justify-content-evenly "><%= link_to "Send a Letter", pals_path, class: "retro fader px-5 d-flex align-items-center" %><%# <%= link_to "Message in a Bottle", pals_path, class: "retro-blue mx-5 p-4" %><%= form_tag inboxes_path, id: "form", method: :post do %> <button type="submit" name="bottled" value="true" class="retro-blue mx-5 p-4">Message in a Bottle</button><% end %> </div>
+    <div class="arrow-container">
+      <div class="mouse_scroll">
+        <div>
+          <span class="m_scroll_arrows unu"></span>
+          <span class="m_scroll_arrows doi"></span>
+          <span class="m_scroll_arrows trei"></span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="container">
-</div>
-
-
 <div class="container m-4">
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-  <div class="card carousel-item active">
-<div class="map-container">
-<div style="width: 100%; height: 600px;" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="pk.eyJ1Ijoic2h1c2h5eXkiLCJhIjoiY2wwZ2kyb2M4MTJ1bjNqbXpleTRyMWp6MCJ9.yukzCb-0A-OGU2rz-1YkWw">
-  </div>
-</div>
-       <div class="card-body">
-    <p class="card-text m-2">Join our users today from all over the world!</p>
-  </div>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="card carousel-item active" style="width: 100%; height: 800px;">
+        <div class="map-container">
+          <div style="width: 100%; height: 700px;" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>" data-mapbox-api-key-value="pk.eyJ1Ijoic2h1c2h5eXkiLCJhIjoiY2wwZ2kyb2M4MTJ1bjNqbXpleTRyMWp6MCJ9.yukzCb-0A-OGU2rz-1YkWw">
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-text m-2">Join our users today from all over the world!</h3>
+        </div>
+      </div>
+      <div class="card carousel-item" style="width: 100%; height: 800px;">
+        <img src="https://designmodo.com/wp-content/uploads/2019/03/Surrealist-Lightbulb-800x600.gif" class="d-block w-100" style="width: 100%; height: 600px;" alt="...">
+        <div class="card-body">
+          <h4 class="card-text m-2">Writing a letter has never been so easy</h4>
+          <ol>
+            <li>create an account on letterly <i class="fa fa-envelope"></i></li>
+            <li>Choose to either send to one of our many users from around the world or send a message in a bottle to a complete stranger <i class="fa fa-wine-bottle"></i></li>
+            <li>Express yourself in a way that is not possible on other platforms <i class="fa fa-scroll"></i></li>
+            <li>Watch as your letters are sent world-wide from the comfort of your home <i class="fa fa-globe"></i></li>
+          </ol>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <div class="card carousel-item ">
-      <img src="https://images.unsplash.com/photo-1505744386214-51dba16a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1606&q=80" class="d-block w-100" style="width: 100%; height: 600px;" alt="...">
-    <div class="card-body">
-    <p class="card-text m-2">Write a letter from anywhere to anyone!</p>
   </div>
-    </div>
-    <div class="card carousel-item">
-      <img src="https://media.istockphoto.com/photos/womans-hands-inserting-letter-in-mailbox-picture-id609696228?k=20&m=609696228&s=612x612&w=0&h=zr8bjgEqJQxo1h8lBda99s1bBbS9XOkcrtLPI0Kx-so=" style="width: 100%; height: 600px; object-fit: cover;" class="d-block w-100" alt="...">
-    <div class="card-body">
-    <p class="card-text">Easily send letters from the comfort of your own home and track where it is going.</p>
-  </div>
-    </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
-</div>
-
-</div>
-
-
-
 </div>

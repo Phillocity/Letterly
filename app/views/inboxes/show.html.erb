@@ -1,5 +1,5 @@
 <%= link_to "Reply", new_inbox_letter_path(@inbox), class:"retro-blue m-4"%>
-<ol class="p-0">
+<ol class="p-0" style="list-style-type: none;">
   <% counter = 1 %>
   <% @inbox.letters.reverse.each_with_index do |letter, index| %>
     <%= render "shared/letter_row", letter: letter, index: index%>
