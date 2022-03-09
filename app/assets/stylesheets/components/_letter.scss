@@ -32,14 +32,16 @@ h2 strong {
 }
 
 .trix-button--icon-increase-nesting-level,
-.trix-button--icon-decrease-nesting-level { display: none; }
+.trix-button--icon-decrease-nesting-level,
+.trix-button--icon-attach,
+.trix-button--icon-link{ display: none; }
 
 ol{
   list-style-type: none;
 }
 
 .avatar-sm {
-  min-width: 25px;
+  min-width: 33px;
   max-width: 25px;
   background-color: white;
   border-radius: 50%;
@@ -79,31 +81,28 @@ ol{
   background-color: #191716;
 }
 
+.modal-body{
+  background-image: image-url('paper_texture.jpg');
+}
+// @media screen and (min-width: 1400px) {
+//   .letter {
+//       // width: 1370px;
+//       margin-left: 350px;
+//       margin-right: 350px;
+//   }
+// }
 
-.letter{
-  margin-left: 200px;
-  margin-right: 200px;
-}
-
-@media screen and (min-width: 1400px) {
-  .letter {
-      // width: 1370px;
-      margin-left: 350px;
-      margin-right: 350px;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .letter {
-    // width: 1570px;
-    margin-left: 400px;
-    margin-right: 400px;
-  }
-}
-@media screen and (min-width: 1900px) {
-  .letter {
-    // width: 1870px;
-    margin-left: 600px;
-    margin-right: 600px;
-  }
-}
+// @media screen and (min-width: 1600px) {
+//   .letter {
+//     // width: 1570px;
+//     margin-left: 400px;
+//     margin-right: 400px;
+//   }
+// }
+// @media screen and (min-width: 1900px) {
+//   .letter {
+//     // width: 1870px;
+//     margin-left: 600px;
+//     margin-right: 600px;
+//   }
+// }

@@ -6,9 +6,8 @@
     <div class="cta-buttons d-flex justify-content-evenly ">
     <%= link_to "Send a Letter", pals_path, class: "retro fader px-5 d-flex align-items-center" %>
     <%# <%= link_to "Message in a Bottle", pals_path, class: "retro-blue mx-5 p-4" %> %
-      <%= form_tag inboxes_path, id: "form",method: :post do %>
-      <%# <%= hidden_field_tag "user_id", "#{user.id}" %>
-      <button type="submit" class="retro-blue mx-5 p-4">Message in a Bottle</button>
+      <%= form_tag inboxes_path, id: "form", method: :post do %>
+      <button type="submit" name="bottled" value="true" class="retro-blue mx-5 p-4">Message in a Bottle</button>
       <% end %>
     </div>
   </div>
@@ -46,11 +45,10 @@
 
 <div class="map-container">
 <div style="width: 100%; height: 600px;" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  data-mapbox-api-key-value="pk.eyJ1Ijoic2h1c2h5eXkiLCJhIjoiY2wwZ2kyb2M4MTJ1bjNqbXpleTRyMWp6MCJ9.yukzCb-0A-OGU2rz-1YkWw">
   <h1>Send a letter to anyone!</h1>
   </div>
 </div>
 </div>
 
 </div>
-

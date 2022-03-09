@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_112952) do
+ActiveRecord::Schema.define(version: 2022_03_09_091241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_112952) do
     t.bigint "second_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "bottled"
     t.index ["first_user_id"], name: "index_inboxes_on_first_user_id"
     t.index ["second_user_id"], name: "index_inboxes_on_second_user_id"
   end

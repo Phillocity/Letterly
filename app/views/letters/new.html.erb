@@ -1,4 +1,4 @@
-<h2>Write your letter to <strong style="font-color:$letterly-yellow"><%=@receiver.name.titleize %></strong> </h2>
+<h2>Write your letter to <strong style="font-color:$letterly-yellow"><%= @inbox.bottled ? "???" : @receiver.name.titleize %></strong> </h2>
 
 <div class="form-outline">
   <div class="form-letter">

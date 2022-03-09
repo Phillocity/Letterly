@@ -40,14 +40,14 @@ puts "created hobbies"
 
 20.times do
 
-  user = User.create(name:Faker::Name.unique.name,
-    email:Faker::Internet.email,
+  user = User.create(name:"#{Faker::Name.first_name} #{Faker::Name.middle_name}",
+    email:"#{Faker::Name.first_name}@hotmail.com",
     gender:Faker::Gender.type,
     avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
     password:"111111",
     address: Cities::CITIES.sample,
     description: Description::DESCRIPTION.sample,
-    age:rand(18..40))
+    age:rand(16..40))
 
     puts "Created user number #{user.id}"
 
@@ -57,7 +57,7 @@ puts "created hobbies"
       hobby = Faker::Hobby.activity
       if hobby.exclude?" "
         puts "Added #{hobby}"
-        hobbies << Hobby.create!(name: Faker::Hobby.activity)
+        hobbies << Hobby.create!(name: hobby)
         counter += 1
       end
     end
@@ -66,14 +66,14 @@ puts "created hobbies"
       HobbyTag.create!(hobby_id: hobbies.sample.id, user_id: user.id)
     end
 
-    user1 = User.create(name:Faker::Name.unique.name,
-      email:Faker::Internet.email,
+    user1 = User.create(name:"#{Faker::Name.unique.first_name} #{Faker::Name.middle_name}",
+      email:"#{Faker::Name.first_name}@hotmail.com",
       gender:Faker::Gender.type,
       avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
       password:"111111",
       address: Cities::CITIES.sample,
       description: Description::DESCRIPTION.sample,
-      age:rand(18..40))
+      age:rand(16..40))
 
       puts "created user number #{user1.id}"
 
@@ -85,11 +85,11 @@ puts "created hobbies"
   inbox.save!
 
   rand(5..15).times do
-    letter = Letter.new(sender: user, receiver: user1, inbox: inbox, content: Letters::LETTERS.sample, subject: Faker::TvShows::BojackHorseman.character)
+    letter = Letter.new(sender: user, receiver: user1, inbox: inbox, content: Letters::LETTERS.sample, subject: "#{Faker::Hacker.adjective} #{Faker::Hacker.verb}")
     puts "[#{letter.subject}]\t \t Letter.sent!"
     letter.save!
 
-    letter = Letter.new(sender:user1, receiver: user, inbox: inbox,  content: Letters::LETTERS.sample, subject: Faker::TvShows::BojackHorseman.character)
+    letter = Letter.new(sender:user1, receiver: user, inbox: inbox,  content: Letters::LETTERS.sample, subject: "#{Faker::Hacker.adjective} #{Faker::Hacker.verb}")
     puts "[#{letter.subject}]\t \t Letter sent!"
     letter.save!
   end
