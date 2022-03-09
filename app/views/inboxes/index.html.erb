@@ -29,7 +29,7 @@
         <div class="w-100">
 
           <div class="user-card mt-3 w-100">
-            <p><%= f.input :description, placeholder: @me.description %></p>
+            <p><%= f.input :description, class:"", placeholder: @me.description %></p>
           </div>
           <div class="wrapping d-flex flex-row w-100 justify-content-between">
           <%= link_to 'Cancel', pal_inboxes_path(@me), class: "retro fader", style: "width: 35%;" %>
