@@ -1,5 +1,4 @@
 <li>
-<div data-controller="refresher" data-content-loader-url-value="/messages.html" data-content-loader-refresh-interval-value="1000">
   <div class="accordion m-4" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="heading<%=%>">
@@ -23,13 +22,11 @@
         aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
         <div class="accordion-body d-flex justify-content-center align-items-center">
           <strong>
-
-          <% t = letter.arrival_time - DateTime.now
-              mm, ss = t.divmod(60)            #=> [4515, 21]
-              hh, mm = mm.divmod(60)           #=> [75, 15]
-              dd, hh = hh.divmod(24)           #=> [3, 3] %>
-
-            <i><h3><%=  "#{dd} days, #{hh} hours, #{mm} minutes and #{ss.to_i} seconds" %></h3></i>
+          <%  t = letter.arrival_time - DateTime.now  %>
+          <%            mm, ss = t.divmod(60)
+              hh, mm = mm.divmod(60)
+              dd, hh = hh.divmod(24)%>
+<i><h3><%=  "#{dd} days, #{hh} hours, #{mm} minutes and #{ss.to_i} seconds" %></h3></i>
           </strong>
           <br>
         </div>

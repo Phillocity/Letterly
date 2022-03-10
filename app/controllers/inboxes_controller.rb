@@ -30,6 +30,11 @@ class InboxesController < ApplicationController
   def show
     @me = current_user
     @inbox = Inbox.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "shared/letter_time", locals: { t: t, dd: dd, hh: hh, mm: mm, ss: ss }, formats: [:html] }
+    end
   end
 
   def new

@@ -1,5 +1,4 @@
 require_relative "boot"
-require "active_support/all"
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -15,7 +14,7 @@ module Letterly
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-    config.active_job.queue_adapter = :sidekiq
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

@@ -16,7 +16,7 @@ class PagesController < ApplicationController
       {
         lat: user.latitude,
         lng: user.longitude,
-        info_window: render_to_string(partial: "users/info_window", locals: { user: user }),
+        info_window: "<h2>#{user.name}</h2>\n<p>#{user.address}</p>\n",
         image_url: helpers.asset_url("marker.png")
       }
     end

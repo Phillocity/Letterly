@@ -44,9 +44,10 @@
 }
 
 .user.wrapper:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   margin: 6% 3% !important;
   transition: all .2s ease-in-out;
+  box-shadow: 3px 1px 11px rgba(0, 0, 0, 0.164);
   cursor: pointer;
 }
 
