@@ -34,6 +34,8 @@ h2 strong {
 .trix-button--icon-increase-nesting-level,
 .trix-button--icon-decrease-nesting-level,
 .trix-button--icon-attach,
+.trix-button--icon-link.accordion-button,
+.trix-button--icon-code,
 .trix-button--icon-link{ display: none; }
 
 // ol{
@@ -128,4 +130,8 @@ h2 strong {
 }
 .accordion-button::after {
   background-image: url(asset_path("black-arrow.png"));
+}
+
+.rich-area{
+height: 27vmin;
 }
