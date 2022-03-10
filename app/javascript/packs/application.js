@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -16,6 +17,12 @@ import "controllers"
 import "bootstrap"
 
 // for rich text editor
+require("jquery")
 require("trix")
 require("@rails/actiontext")
-require("jquery")
+
+const timer = document.querySelectorAll(".gridify")
+
+setInterval(function() {
+  $(".timer").load(location.href + " .timer");
+}, 1000);

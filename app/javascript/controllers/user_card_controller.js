@@ -8,6 +8,7 @@ export default class extends Controller {
   }
 
   revealContent() {
+    console.log("Reveal Working")
     this.contentTarget.classList.toggle("d-none")
   }
 }

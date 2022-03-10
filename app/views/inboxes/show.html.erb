@@ -2,13 +2,50 @@
 <ol class="p-0" style="list-style-type: none;">
 
   <% @inbox.letters.reverse.each_with_index do |letter, index| %>
-  <div data-controller="refresher" data-refresher-url-value="/messages.html" data-refresher-refresh-interval-value="1000">
-    <% arrival_time =  DateTime.now <= letter.arrival_time%>
-      <% if !letter.arrival_time.nil? && arrival_time %>
-          <%= render "shared/letter_row_arriving", letter: letter, index: index%>
-      <% else %>
-        <%= render "shared/letter_row", letter: letter, index: index%>
-      <% end %>
+  <% if !letter.arrival_time.nil? && DateTime.now <= letter.arrival_time %>
+  <%t = letter.arrival_time - DateTime.now  %>
+  <li>
+    <div class="accordion m-4" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading<%=%>">
+        <button class="accordion-button <%="collapsed" if index > 0 %>" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapse<%=index%>" aria-expanded="true" aria-controls="collapse<%=index%>">
+          <div class="inbox-container d-flex flex-row justify-content-center align-items-center">
+            <div class="image">
+              <img class="avatar-sm" src=<%=letter.sender.avatar%>>
+            </div>
+            <br>
+  <li class="inbox-thread">
+    <% if current_user == letter.sender %>
+    <h2>To: <strong>(Pal) <%=letter.receiver.name%></strong></h2>
+    <% else %>
+    <h2>To: <strong>(Me) <%=letter.receiver.name%></strong></h2>
     <% end %>
+  </li>
   </div>
+  </h2>
+  <div id="collapse<%=index%>" class="accordion-collapse collapse <%="show" if index == 0 %>"
+    aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
+    <div class="accordion-body d-flex justify-content-center align-items-center">
+      <strong class="timer">
+        <%  t = letter.arrival_time - DateTime.now
+              mm, ss = t.divmod(60)
+              hh, mm = mm.divmod(60)
+              dd, hh = hh.divmod(24)%>
+        <i>
+          <h3><%=  "#{dd} days, #{hh} hours, #{mm} minutes and #{ss.to_i} seconds" %></h3>
+        </i>
+      </strong>
+      <br>
+    </div>
+  </div>
+  </div>
+  <br>
+  </div>
+  </li>
+
+  <% else %>
+  <%= render "shared/letter_row", letter: letter, index: index%>
+  <% end %>
+  <% end %>
 </ol>

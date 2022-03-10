@@ -1,8 +1,7 @@
 <div data-controller="search-users">
-
   <%= form_with url: pals_path, method: :get, html: { class:
-    'mb-4', data: { search_users_target: 'form' } } do |f| %>
-      <%= f.label :age, "AGE LIMIT:", class:"h4 mt-4" ,data: { search_users_target: 'ageLabel'} %>
+    'mb-4 d-flex flex-column justify-content-center align-items-center', data: { search_users_target: 'form' } } do |f| %>
+      <%= f.label :age, "AGE LIMIT:", class:"retro-normal h4 mt-4" ,data: { search_users_target: 'ageLabel'} %>
       <%= f.range_field :age, in: 16..100,
               class: "form-control my-3",
               value: params[:age],

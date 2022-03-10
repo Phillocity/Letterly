@@ -13,6 +13,7 @@ export default class extends Controller {
 
   update() {
       const url = `${this.formTarget.action}?age=${this.inputAgeTarget.value}&query=${this.inputTarget.value}`
+      console.log("Working")
       fetch(url, { headers: { "Accept": "text/plain" } })
         .then(response => response.text())
         .then((data) => {
@@ -24,12 +25,4 @@ export default class extends Controller {
     this.ageLabelTarget.innerHTML = `AGE LIMIT: 16-${this.inputAgeTarget.value}`
   }
 
-  // update() {
-  //   const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
-  //   fetch(url, { headers: { "Accept": "text/plain" } })
-  //     .then(response => response.text())
-  //     .then((data) => {
-  //       this.listTarget.outerHTML = data
-  //     })
-  // }
 }
