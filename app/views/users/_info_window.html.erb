@@ -1,2 +1,11 @@
 <h2><%= user.name %></h2>
-<p><%= user.address %></p>
+<p style="font-family: Syne Mono;"><%= user.address %></p>
+
+
+<div class="actions">
+
+<%= form_tag inboxes_path, id: "form",method: :post do %>
+<%= hidden_field_tag "user_id", "#{user.id}" %>
+<button type="submit" class="retro fader" style="font-family: Syne Mono;">Send a letter!</button>
+<% end %>
+</div>
