@@ -14,6 +14,7 @@ class LettersController < ApplicationController
     @letter.delivery_time = delivery_in_seconds(@letter.sender, @letter.receiver)
     @letter.arrival_time = (DateTime.now + @letter.delivery_time.seconds).at_beginning_of_hour
 
+
     if @letter.save!
       redirect_to pals_path, notice: "Your letter is being sent."
     else

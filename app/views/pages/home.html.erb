@@ -4,12 +4,14 @@
       <h1>Write a letter. Share a story.</h1>
     </div>
     <div class="cta-buttons d-flex justify-content-evenly "><%= link_to "Send a Letter", pals_path, class: "retro fader px-5 d-flex align-items-center" %><%# <%= link_to "Message in a Bottle", pals_path, class: "retro-blue mx-5 p-4" %><%= form_tag inboxes_path, id: "form", method: :post do %> <button type="submit" name="bottled" value="true" class="retro-blue mx-5 p-4">Message in a Bottle</button><% end %> </div>
+    <a href="#carouselExampleControls">
     <div class="arrow-container">
       <div class="mouse_scroll">
         <div>
           <span class="m_scroll_arrows unu"></span>
           <span class="m_scroll_arrows doi"></span>
           <span class="m_scroll_arrows trei"></span>
+    </a>
         </div>
       </div>
     </div>
@@ -32,7 +34,7 @@
         <div class="card-body">
           <h4 class="card-text m-2">Writing a letter has never been so easy</h4>
           <ol>
-            <li>create an account on letterly <i class="fa fa-envelope"></i></li>
+            <li>Create an account on letterly <i class="fa fa-envelope"></i></li>
             <li>Choose to either send to one of our many users from around the world or send a message in a bottle to a complete stranger <i class="fa fa-wine-bottle"></i></li>
             <li>Express yourself in a way that is not possible on other platforms <i class="fa fa-scroll"></i></li>
             <li>Watch as your letters are sent world-wide from the comfort of your home <i class="fa fa-globe"></i></li>
