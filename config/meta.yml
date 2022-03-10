@@ -1,0 +1,5 @@
+meta_product_name: "Letterly"
+meta_title: "Letterly - Write a letter. Share a story"
+meta_description: "Send letters anywhere, to anyone"
+meta_image: "logo.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
