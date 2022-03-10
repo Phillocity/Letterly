@@ -4,7 +4,7 @@
       <h1>Write a letter. Share a story.</h1>
     </div>
     <div class="cta-buttons d-flex justify-content-evenly "><%= link_to "Send a Letter", pals_path, class: "retro fader px-5 d-flex align-items-center" %><%# <%= link_to "Message in a Bottle", pals_path, class: "retro-blue mx-5 p-4" %><%= form_tag inboxes_path, id: "form", method: :post do %> <button type="submit" name="bottled" value="true" class="retro-blue mx-5 p-4">Message in a Bottle</button><% end %> </div>
-    <a href="#carouselExampleControls">
+    <a href="#carouselExampleControls" class="link">
     <div class="arrow-container">
       <div class="mouse_scroll">
         <div>

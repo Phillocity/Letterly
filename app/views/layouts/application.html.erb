@@ -2,8 +2,16 @@
 <html>
 
 <head>
-  <title>Letterly</title>
+  <title>Letterly - Write a letter. Share a story </title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Facebook Open Graph data -->
+<meta property="og:title" content="<%= meta_title %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= request.original_url %>" />
+<meta property="og:image" content="<%= meta_image %>" />
+<meta property="og:description" content="<%= meta_description %>" />
+<meta property="og:site_name" content="<%= meta_title %>" />
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <link rel="icon" type="image/png" href="favicon.png" />
