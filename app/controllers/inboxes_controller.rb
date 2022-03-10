@@ -21,7 +21,7 @@ class InboxesController < ApplicationController
       @markers << {
         lat: @receiver.latitude,
         lng: @receiver.longitude,
-        info_window: render_to_string(partial: "inboxes_info_window", locals: { receiver: @receiver }),
+        info_window: render_to_string(partial: "inboxes/inboxes_info_window", locals: { receiver: @receiver }),
         image_url: helpers.asset_url("marker.png")
       }
     end
