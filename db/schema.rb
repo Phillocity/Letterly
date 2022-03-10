@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2022_03_09_125904) do
     t.bigint "receiver_id"
     t.bigint "inbox_id"
     t.text "content"
-    t.time "delivery_time"
+    t.integer "delivery_time"
     t.string "subject"
     t.boolean "bottled"
     t.datetime "created_at", precision: 6, null: false
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2022_03_09_125904) do
     t.float "longitude"
     t.text "avatar"
     t.string "gender"
-    t.integer "distance_from"
+    t.integer "letter_distance_from"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

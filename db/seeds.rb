@@ -40,7 +40,7 @@ puts "created hobbies"
 
 20.times do
 
-  user = User.create(name:"#{Faker::Name.first_name} #{Faker::Name.middle_name}",
+  user = User.create!(name:"#{Faker::Name.first_name} #{Faker::Name.middle_name}",
     email:"#{Faker::Name.first_name}@hotmail.com",
     gender:Faker::Gender.type,
     avatar: "https://avatars.dicebear.com/api/bottts/#{randomizer.sample(rand(1..26)).join}.svg" ,
