@@ -92,3 +92,5 @@ gem "geocoder"
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'redis'
+
+gem 'activesupport', '~> 5.0', '>= 5.0.0.1'

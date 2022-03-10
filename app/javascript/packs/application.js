@@ -15,6 +15,7 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+import $ from 'jquery';
 
 // for rich text editor
 require("jquery")
