@@ -13,7 +13,7 @@ class LettersController < ApplicationController
     @letter.sender_id = current_user.id
     @letter.receiver_id = @inbox.first_user_id == current_user.id ? @inbox.second_user_id : @inbox.first_user_id
     @letter.delivery_time = delivery_in_seconds(@letter.sender, @letter.receiver)
-    @letter.arrival_time = (DateTime.now + @letter.delivery_time.seconds)
+    @letter.arrival_time = (DateTime.now + @letter.delivery_time)
 
     if @letter.save!
       redirect_to pals_path, notice: "Your letter is being sent."
@@ -42,7 +42,7 @@ class LettersController < ApplicationController
     distance = distance(user1, user2)
     miles_per_hour = 100
     delivery_time_in_seconds = (distance / miles_per_hour) * 3600
-    return delivery_time_in_seconds.to_i
+    return delivery_time_in_seconds.to_f
   end
 
 end
