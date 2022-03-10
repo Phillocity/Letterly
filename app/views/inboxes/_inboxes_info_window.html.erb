@@ -1,2 +1,11 @@
 <h2><%= @receiver.name %></h2>
-<p><%= @receiver.address %></p>
+<p style="font-family: Syne Mono;"><%= @receiver.address %></p>
+
+
+<% @me.inboxes.reverse.each do |inbox| %>
+          <div class="d-flex flex-column justify-content-center align-items-center text-center">
+            <%= link_to pal_inbox_path(@me.id, inbox), class:"m-0 d-flex justify-content-center" do %>
+
+                   <% last_update = time_ago_in_words(inbox.letters.last.created_at, include_seconds: true) %>
+                <p class="m-0"><%= "Last letter" %></p>
+                <p><%= "#{last_update} ago" %></p>
