@@ -16,7 +16,7 @@ class InboxesController < ApplicationController
     @me = current_user
     @markers = []
 
-    @me.inboxes.reverse.each do |inbox|
+    @me.inboxes.each do |inbox|
       @receiver = inbox.first_user == current_user ? inbox.second_user : inbox.first_user
       @markers << {
         lat: @receiver.latitude,
