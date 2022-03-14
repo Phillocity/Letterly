@@ -6,7 +6,6 @@ class CreateLetters < ActiveRecord::Migration[6.1]
       t.references :inbox
       t.text :content
       t.integer :delivery_time
-      t.datetime :arrival_time
       t.string :subject
       t.boolean :bottled
 
