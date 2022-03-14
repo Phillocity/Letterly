@@ -24,6 +24,12 @@ require("@rails/actiontext")
 
 const timer = document.querySelectorAll(".gridify")
 
+
+
+// $(".content0").load(location.href + " .timer0");
+
 setInterval(function() {
-  $(".timer").load(location.href + " .timer");
+  $('div[class*="timer-wrapper"]').each(function (index, element) {
+    $(element).load(location.href + ` .timer${index}`)
+  })
 }, 1000);

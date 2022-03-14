@@ -15,7 +15,7 @@ class LettersController < ApplicationController
     @letter.arrival_time = @letter.delivery_time.seconds.from_now
 
     if @letter.save!
-      redirect_to pals_path, notice: "Your letter is being sent."
+      redirect_to pal_inbox_path(current_user, @inbox), notice: "Your letter is being sent."
     else
       render :new, notice: "Something went wrong. Try again."
     end
