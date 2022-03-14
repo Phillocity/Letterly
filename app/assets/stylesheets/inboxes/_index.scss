@@ -4,18 +4,16 @@
 
 
   .user.wrapper-edit {
-    padding: 1%;
+    padding: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: .3s;
     border-radius: 20px;
-    // height: fit-content;
     margin-right: 8px;
     height: 550px;
-    // border-radius: 20px; height: fit-content; margin-right: 8px;
-    // border-radius: 20px; margin-right: 8px; height: 550px;
+
 
     .user-card {
       display: flex;
@@ -48,9 +46,7 @@
     }
 
     .user-card-description {
-      // display: flex;
-      // flex-direction: row;
-      // align-items: center;
+
       background-color: $letterly-light-yellow;
       padding: 15px;
       border-top-left-radius: 20px;
@@ -58,24 +54,20 @@
       width: 99%;
       transition: .4s;
       height: 175px;
-
-      // ::-webkit-scrollbar-thumb {
-      //   background-color: $letterly-light-yellow;
-      // }
     }
   }
 
 
   .gridify {
+    padding: 3%;
+    min-width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 42px 60px;
-    padding: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 7%;
+    grid-row-gap: 7%;
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
 
     p {
       color: $letterly-grey;

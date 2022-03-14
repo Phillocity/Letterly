@@ -49,6 +49,10 @@
   background: #555;
 }
 
+html, body{
+  min-width: 100%;
+}
+
 //Rich Text
 @import "./actiontext.scss";
 @import "components/letter";
