@@ -29,7 +29,7 @@ const timer = document.querySelectorAll(".gridify")
 // $(".content0").load(location.href + " .timer0");
 
 setInterval(function() {
-  $('div[class*="timer-wrapper"]').each(function (index, element) {
+  $('div[class*="timer-wrapper"]').map(function (index, element) {
     $(element).load(location.href + ` .timer${index}`)
   })
 }, 1000);
