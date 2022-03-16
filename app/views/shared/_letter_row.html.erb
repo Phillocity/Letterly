@@ -8,7 +8,6 @@
             <div class="image">
               <img class="avatar-sm" src=<%=letter.sender.avatar%>>
             </div>
-            <br>
             <li class="inbox-thread">
               <% if current_user == letter.sender %>
               <h2>To: <strong>(Pal) <%=letter.receiver.name%></strong></h2>
@@ -21,8 +20,9 @@
       <div id="collapse<%=index%>" class="accordion-collapse collapse <%="show" if index == 0 %>"
         aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
         <div class="accordion-body d-flex flex-column justify-content-center align-items-center">
-          <strong> <%=letter.content.to_plain_text.truncate(1400)%> </strong>
-          <br>
+        <div class="content<%=index%>">
+          <strong class="timer<%=index%>"> <%=letter.content.to_plain_text.truncate(1400)%> </strong>
+          </div>
           <button class="inbox-thread retro-blue m-4 w-50" data-bs-toggle="modal" data-bs-target="#exampleModal<%=index%>"> Full Screen</button>
         </div>
       </div>
@@ -42,5 +42,4 @@
           </div>
         </div>
       </div>
-    <br>
     </li>

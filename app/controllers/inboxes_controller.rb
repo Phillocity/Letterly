@@ -16,7 +16,7 @@ class InboxesController < ApplicationController
     @me = current_user
     @markers = []
 
-    @me.inboxes.reverse.each do |inbox|
+    @me.inboxes.each do |inbox|
       @receiver = inbox.first_user == current_user ? inbox.second_user : inbox.first_user
       @markers << {
         lat: @receiver.latitude,
@@ -47,7 +47,7 @@ class InboxesController < ApplicationController
     @inbox.first_user_id = current_user.id
     @inbox.second_user_id = User.find_by(id: params[:user_id]).nil? ? filter_existing(User.all).sample.id : User.find(params[:user_id]).id
     @inbox.bottled = params[:bottled] == "true"
-    @inbox.save
+    @inbox.save!
     redirect_to new_inbox_letter_path(@inbox)
   end
 
