@@ -62,7 +62,7 @@
             <h3><strong>Gender: </strong><%=@me.gender%></h3>
           </div>
         </div>
-        <div>
+
 
           <div class="user-card-description mt-3 overflow-auto">
             <p><%= @me.description %></p>
@@ -70,10 +70,10 @@
 
           <%= form_tag pal_inboxes_path(@me), id: "form",class: "d-flex justify-content-center", method: :get do %>
           <%= hidden_field_tag "edit", "edit" %>
-          <button type="submit" class="retro fader w-50">Edit</button>
+          <button type="submit" class="retro">Edit</button>
           <% end %>
         </div>
-      </div>
+
 
     <% end %>
   </div>

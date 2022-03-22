@@ -1,10 +1,13 @@
 // Specific CSS for your home-page
 
-.fader {
-  animation: fadeInButton ease 3s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  display:flex
+.background-white{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background-color: white;
+}
+
+.highlight{
+  background-color: $letterly-yellow;
 }
 
 

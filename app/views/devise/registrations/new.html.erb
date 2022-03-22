@@ -26,6 +26,14 @@
                       autofocus: true,
                       label: "Your Gender",
                       placeholder: "(Optional) Add your gender"%>
+        <%= f.input :age,
+                      required: true,
+                      label: "Your age",
+                      placeholder: "Your age" %>
+        <%= f.input :description,
+                      required: true,
+                      label: "Your Description",
+                      placeholder: "Your Description Bio" %>
         <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -35,11 +43,12 @@
                       required: true,
                       label: "Repeat your password",
                       placeholder: "•••••••••••" %>
-        <%= f.input :avatar,
+        <%= f.hidden_field :avatar,
                       required: false,
                       autofocus: true,
                       label: "Your Avatar",
-                      placeholder: "Your Avatar URL link"%>
+                      placeholder: "Your Avatar URL link",
+                      value: "https://avatars.dicebear.com/api/bottts/#{('a'..'z').to_a.sample(rand(1..26)).join}.svg"%>
         <div class="form-actions">
           <button type="submit" class="retro-blue">Sign Up</button>
           <%= render "devise/shared/links"%>

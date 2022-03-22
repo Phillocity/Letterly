@@ -1,23 +1,21 @@
 class UsersController < ApplicationController
   def index
-    if params[:query].present? && params[:age].present?
-      @users = filter_existing(User.search_user(params[:query])).filter do |user|
-        user.age.between?(16, params[:age].to_i)
-      end.sample(5)
-    elsif params[:query].present?
+    age = params[:age].present? ? params[:age].to_i : 100
+
+    if params[:query].present?
       @users = filter_existing(User.search_user(params[:query]))
-    elsif params[:age].present?
-      @users = User.all.filter { |user| user.age.between?(16, params[:age].to_i) }.sample(5)
+      @users = @users.select { |user| user.age.to_i.between?(16, age) }
     else
-      @users = filter_existing(User.all.order('RANDOM()')).first(5)
+      @users = filter_existing(User.all)
+      @users = @users.select { |user| user.age.to_i.between?(16, age) }
     end
+
 
     @markers = @users.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
         info_window: "<h2>#{user.name}</h2>\n<p>#{user.address}</p>\n",
-#         info_window: render_to_string(partial: "info_window", locals: { user: user }),
         image_url: helpers.asset_url("marker.png")
       }
     end
