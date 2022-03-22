@@ -4,20 +4,12 @@ class UsersController < ApplicationController
 
     if params[:query].present?
       @users = filter_existing(User.search_user(params[:query]))
-      @users = @users.select { |user| user.age.to_i.between?(16, age) }
+      @users = @users.select { |user| user.age.to_i.between?(16, age) }.sample(5)
+      markers(@users)
     else
       @users = filter_existing(User.all)
-      @users = @users.select { |user| user.age.to_i.between?(16, age) }
-    end
-
-
-    @markers = @users.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        info_window: "<h2>#{user.name}</h2>\n<p>#{user.address}</p>\n",
-        image_url: helpers.asset_url("marker.png")
-      }
+      @users = @users.select { |user| user.age.to_i.between?(16, age) }.sample(5)
+      markers(@users)
     end
 
     respond_to do |format|
@@ -53,5 +45,16 @@ class UsersController < ApplicationController
   def filter_existing(user_list)
     exclusions = current_user.inboxes.collect(&:second_user).collect(&:id) << current_user.id
     user_list.filter { |user| exclusions.exclude?(user.id) }
+  end
+
+  def markers(users)
+    @markers = users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window: "<h2>#{user.name}</h2>\n<p>#{user.address}</p>\n",
+        image_url: helpers.asset_url("marker.png")
+      }
+    end
   end
 end
