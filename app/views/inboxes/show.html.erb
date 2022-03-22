@@ -1,4 +1,4 @@
-<%= link_to "Reply", new_inbox_letter_path(@inbox), class:"retro-blue m-4"%>
+<%= link_to "Reply", new_inbox_letter_path(@inbox), class:"retro-blue mx-auto my-3 col-5 text-center"%>
 <ol class="p-0" style="list-style-type: none;">
 
   <% @inbox.letters.reverse.each_with_index do |letter, index| %>

@@ -15,6 +15,7 @@ export default class extends Controller {
       style: "mapbox://styles/shushyyy/cl0h3jc4k002014p97nd6sq3d",
       pitch: 50, // pitch in degrees
       bearing: -10, // bearing in degrees
+      interactive: false
     })
 
     this.#addMarkersToMap()
