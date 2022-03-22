@@ -1,53 +1,38 @@
 <%= link_to "Reply", new_inbox_letter_path(@inbox), class:"retro-blue mx-auto my-3 col-5 text-center"%>
 <ol class="p-0" style="list-style-type: none;">
-
   <% @inbox.letters.reverse.each_with_index do |letter, index| %>
-  <% if !letter.arrival_time.nil? && DateTime.now <= letter.arrival_time %>
-  <%t = letter.arrival_time - DateTime.now  %>
-  <li>
-    <div class="accordion" id="accordionExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="heading<%=%>">
-        <button class="accordion-button <%="collapsed" if index > 0 %>" type="button" data-bs-toggle="collapse"
+    <li>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading<%=%>">
+            <button class="accordion-button <%="collapsed" if index > 0 %>" type="button" data-bs-toggle="collapse"
           data-bs-target="#collapse<%=index%>" aria-expanded="true" aria-controls="collapse<%=index%>">
-          <div class="inbox-container d-flex flex-row justify-content-center align-items-center">
-            <div class="image">
-              <img class="avatar-sm" src=<%=letter.sender.avatar%>>
+              <div class="inbox-container d-flex flex-row justify-content-center align-items-center">
+                <div class="image">
+                  <img class="avatar-sm" src=<%=letter.sender.avatar%>>
+                </div>
+                <li class="inbox-thread">
+                  <% if current_user == letter.sender %>
+                    <h2>To: <strong>(Pal) <%=letter.receiver.name%></strong></h2>
+                    <% last_update = time_ago_in_words(letter.created_at, include_seconds: true) %>
+                  <% else %>
+                    <h2>To: <strong>(Me) <%=letter.receiver.name%></strong></h2>
+                  <% end %>
+                </li>
+              </div>
+            </h2>
+            <div id="collapse<%=index%>"  class="<%=index%> accordion-collapse collapse <%="show" if index == 0 %>" aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
+              <div id="timer-wrapper<%=index%>" class="accordion-body d-flex flex-column justify-content-center align-items-center">
+                <% if !letter.arrival_time.nil? && DateTime.now <= letter.arrival_time %>
+                  <%t = letter.arrival_time - DateTime.now  %>
+                  <%= render "shared/letter_time", letter: letter, index: index%>
+                <% else %>
+                  <%= render "shared/letter_row", letter: letter, index: index%>
+                <% end %>
+              </div>
             </div>
-  <li class="inbox-thread">
-    <% if current_user == letter.sender %>
-    <h2>To: <strong>(Pal) <%=letter.receiver.name%></strong></h2>
-    <% last_update = time_ago_in_words(letter.created_at, include_seconds: true) %>
-    <% else %>
-    <h2>To: <strong>(Me) <%=letter.receiver.name%></strong></h2>
-
+          </div>
+        </div>
+      </li>
     <% end %>
-  </li>
-  </div>
-  </h2>
-  <div id="collapse<%=index%>"  class="<%=index%> accordion-collapse collapse <%="show" if index == 0 %>"
-    aria-labelledby="heading<%=index%>" data-bs-parent="#accordionExample">
-    <div id="timer-wrapper<%=index%>" class="accordion-body d-flex justify-content-center align-items-center">
-      <div class="timer-wrapper<%=index%>">
-        <strong class="timer<%=index%>">
-          <%  t = letter.arrival_time - DateTime.now
-              mm, ss = t.divmod(60)
-              hh, mm = mm.divmod(60)
-              dd, hh = hh.divmod(24)%>
-          <i>
-          <h2 class="text-center">Arriving in</h2>
-            <h3><%=  "#{dd} days, #{hh} hours, #{mm} minutes and #{ss.to_i} seconds" %></h3>
-          </i>
-        </strong>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  </li>
-
-  <% else %>
-  <%= render "shared/letter_row", letter: letter, index: index%>
-  <% end %>
-  <% end %>
-</ol>
+  </ol>

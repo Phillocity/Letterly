@@ -1,6 +1,6 @@
 <div class="seperate d-flex flex-row justify-content-center align-content-center" data-search-users-target="list">
   <div class="list <%="d-none" if @users.size.zero?  %>">
-    <% @users.sample(5).sort_by{|user| user.age}.reverse.each do |user|%>
+    <% @users.sort_by{|user| user.age}.reverse.each do |user|%>
     <div class="user wrapper bg-dark m-2 p-3" data-controller="user-card" data-search-user-target="list"
       data-action="click->user-card#revealContent">
       <div class="user-card">

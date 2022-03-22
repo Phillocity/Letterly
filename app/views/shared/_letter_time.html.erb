@@ -1,1 +1,13 @@
-<%=  "#{dd} days, #{hh} hours, #{mm} minutes and #{ss.to_i} seconds" %>
+
+<div class="timer-wrapper<%=index%>">
+  <strong class="timer<%=index%>">
+    <%  t = letter.arrival_time - DateTime.now
+              mm, ss = t.divmod(60)
+              hh, mm = mm.divmod(60)
+              dd, hh = hh.divmod(24)%>
+    <i>
+      <h2 class="text-center">Arriving in</h2>
+      <h3><%=  "#{dd} days, #{hh} hours, #{mm} minutes and #{ss.to_i} seconds" %></h3>
+    </i>
+  </strong>
+</div>
