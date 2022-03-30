@@ -4,6 +4,14 @@
 
 Deployed Link: http://www.letterly.fun/
 
+### Stack Used: 
+* Ruby-on-rails
+* SASS
+* Stimulus JS & Jquery
+* PostgreSQL
+* Heroku
+* Bootstrap
+
 A <em><b>Snail mail</b></em> emulation app that was made during my time in a fullstack bootcamp, made with the user scenario of pen pals when sending letters abroad. Based on the geolocation on each user, it will emulate the delay needed for the letter to travel there, UK user sending a letter to US users will take 3 days while UK to Japan may take longer.
 
 ### Homepage overview
