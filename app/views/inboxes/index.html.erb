@@ -83,7 +83,7 @@
 
     <div class="user wrapper-edit bg-dark">
 
-      <div class="gridify overflow-auto" >
+      <div class="gridify overflow-auto" style="min-height: 100%;">
 
         <% @me.inboxes.sort_by{|item| item.letters.last.created_at}.reverse!.each do |inbox| %>
           <div class="d-flex flex-column justify-content-center align-items-center text-nowrap">
