@@ -1,8 +1,8 @@
-<h2>Write your letter to <strong style="font-color:$letterly-yellow"><%= @inbox.bottled ? "???" : @receiver.name.titleize %></strong> </h2>
+<h2 class="my-3">Write your letter to <strong style="font-color:$letterly-yellow"><%= @inbox.bottled ? "???" : @receiver.name.titleize %></strong> </h2>
 
 <div class="form-outline">
   <div class="form-letter">
-    <%= simple_form_for [@inbox, @letter] do |f| %>
+    <%= simple_form_for [@inbox, @letter], html: { class: "w-100 h-100"} do |f| %>
 
     <div class="field">
       <%= f.label :subject, "Letter title" %>
@@ -10,7 +10,7 @@
     </div>
     <div class="field">
       <%= f.label :content, "Letter text" %>
-      <%= f.rich_text_area :content,as: :text_area, placeholder: "Write a letter - share a story", class:"rich-area form-control p-2" %>
+      <%= f.rich_text_area :content,as: :text_area, placeholder: "Write a letter - share a story", class:"form-control p-2  rich-area" %>
     </div>
     <div class="actions">
       <button type="submit" class="retro-blue">Send a letter!</button>
@@ -23,9 +23,9 @@
 <%# <%= link_to 'Back', pals_path, class:"retro" %>
 
 <% if @inbox.letters.count.zero?  %>
-  <%=  link_to 'Go Back', @inbox, method: :delete, class:"retro", data: { confirm: 'Are you sure? All your letter content will be lost.' } %>
+  <%=  link_to 'Go Back', @inbox, method: :delete, class:"retro mt-4", data: { confirm: 'Are you sure? All your letter content will be lost.' } %>
 <% else %>
-  <%= link_to 'Go Back', pals_path, class:"retro"  %>
+  <%= link_to 'Go Back', pals_path, class:"retro mt-4"  %>
 <% end %>
 
  <%# if @inbox.letters.count.zero? %>

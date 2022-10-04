@@ -1,4 +1,4 @@
-<div class="d-flex flex-row top-container">
+<div class="d-flex flex-row top-container mt-4">
   <div class="col-6">
     <% if params[:edit] %>
 
@@ -70,7 +70,7 @@
 
           <%= form_tag pal_inboxes_path(@me), id: "form",class: "d-flex justify-content-center", method: :get do %>
           <%= hidden_field_tag "edit", "edit" %>
-          <button type="submit" class="retro">Edit</button>
+          <button type="submit" class="retro my-3 p-2">Edit</button>
           <% end %>
         </div>
 
