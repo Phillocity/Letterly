@@ -9,9 +9,11 @@
               <img src=<%=user.avatar%>>
             </div>
             <div class="hobbies">
-              <% user.hobbies.each do |hobby|%>
-                <p class="tag"><%= hobby.name %></p>
-              <% end %>
+             <ul class="list-unstyled">
+                <% user.hobbies.each do |hobby|%>
+                  <div class="rounded-pill tag m-2 px-2"><%= hobby.name %></div>
+                <% end %>
+              </ul>
             </div>
           </div>
           <div class="card-right">

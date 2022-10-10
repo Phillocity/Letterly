@@ -2,7 +2,7 @@
   height: fit-content;
   margin-bottom: 5px;
 
-  .user.wrapper-edit {
+  .user.wrapper {
     padding: 3%;
     display: flex;
     flex-direction: column;
@@ -11,8 +11,8 @@
     transition: 0.3s;
     border-radius: 20px;
     margin-right: 8px;
-    height: 550px;
-
+    max-height: 500px;
+    height: 100%;
     .user-card {
       display: flex;
       flex-direction: row;
@@ -64,6 +64,52 @@
     p {
       color: $letterly-grey;
     }
+  }
+}
+
+.user.wrapper-edit{
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  border-radius: 20px;
+  margin-right: 8px;
+  .user-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: $letterly-light-yellow;
+    padding: 10px;
+    width: 99%;
+    transition: 0.4s;
+    border-radius: 20px;
+    height: fit-content;
+
+    .card-right {
+      width: 60%;
+      margin-left: 4%;
+    }
+
+    .card-left {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  .user-card-description {
+    background-color: $letterly-light-yellow;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 99%;
+    transition: 0.4s;
+    height: 175px;
   }
 }
 
