@@ -1,23 +1,20 @@
 <div class="container form-container">
   <div class="row">
-    <div class="form-card col-md-8 col-lg-6 col-xl-6">
-<h2>Forgot your password?</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+    <div class="form-card col-md-12 col-lg-9 col-xl-9">
+      <h2>Forgot your password?</h2>
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
-  </div>
-
-  <div class="form-actions">
-   <button type="submit" class="retro-blue">Reset Password</button>
-    <%= render "devise/shared/links" %>
-  </div>
-<% end %>
+        </div>
+        <div class="form-actions align-items-center col-8">
+          <button type="submit" class="retro-blue w-100">Reset Password</button>
+          <%= render "devise/shared/links" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
