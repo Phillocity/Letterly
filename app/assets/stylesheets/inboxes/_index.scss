@@ -2,18 +2,16 @@
   height: fit-content;
   margin-bottom: 5px;
 
-
   .user.wrapper-edit {
     padding: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: .3s;
+    transition: 0.3s;
     border-radius: 20px;
     margin-right: 8px;
     height: 550px;
-
 
     .user-card {
       display: flex;
@@ -22,17 +20,13 @@
       background-color: $letterly-light-yellow;
       padding: 10px;
       width: 99%;
-      transition: .4s;
+      transition: 0.4s;
       border-radius: 20px;
       height: fit-content;
 
       .card-right {
         width: 60%;
         margin-left: 4%;
-
-        h3 {
-          font-size: 1vw;
-        }
       }
 
       .card-left {
@@ -46,31 +40,35 @@
     }
 
     .user-card-description {
-
       background-color: $letterly-light-yellow;
       padding: 15px;
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
       width: 99%;
-      transition: .4s;
+      transition: 0.4s;
       height: 175px;
     }
   }
 
-
   .gridify {
+    height: 100%;
     padding: 3%;
     min-width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 7%;
-    grid-row-gap: 7%;
+    grid-template-columns: 1fr 1fr;
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
-
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     p {
       color: $letterly-grey;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gridify {
+    grid-template-columns: 1fr !important;
   }
 }
