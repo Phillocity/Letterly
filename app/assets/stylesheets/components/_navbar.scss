@@ -4,15 +4,12 @@
 }
 
 .navbar-brand img {
-  width: 4vw;
+  width: 4rem;
 }
 
 
 .nav-link {
   color: $letterly-dark-blue;
-  margin-left: 2vw;
-  font-size: 2vmin;
-  font-weight: strong;
 }
 
 .nav-link:hover {
@@ -45,18 +42,4 @@ a:hover{
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #111827;
   color: transparent;
-}
-
-.halftone:after {
-  content: "LETTERLY";
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHElEQVQYV2NUVFT8f//+fUYGBgYGMAEDcA5IBQCKJQVmn76DhAAAAABJRU5ErkJggg==) repeat;
-  left: calc(50% + -22vw);
-  position: absolute;
-  top: calc(50% + 0px);
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  -webkit-text-stroke-width: 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }

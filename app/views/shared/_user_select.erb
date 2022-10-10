@@ -1,49 +1,46 @@
-<div class="seperate d-flex flex-row justify-content-center align-content-center" data-search-users-target="list">
-  <div class="list <%="d-none" if @users.size.zero?  %>">
+<div class="seperate d-flex flex-row justify-content-between align-content-center" data-search-users-target="list">
+  <div class="col <%="d-none" if @users.size.zero?  %>">
     <% @users.sort_by{|user| user.age}.reverse.each do |user|%>
-    <div class="user wrapper bg-dark m-2 p-3" data-controller="user-card" data-search-user-target="list"
+      <div class="user wrapper bg-dark m-2 p-3" data-controller="user-card" data-search-user-target="list"
       data-action="click->user-card#revealContent">
-      <div class="user-card">
-        <div class="card-left">
-          <div class="avatar-large img-fluid">
-            <img src=<%=user.avatar%>>
+        <div class="user-card">
+          <div class="card-left">
+            <div class="avatar-large mb-2">
+              <img src=<%=user.avatar%>>
+            </div>
+            <div class="hobbies">
+              <% user.hobbies.each do |hobby|%>
+                <p class="tag"><%= hobby.name %></p>
+              <% end %>
+            </div>
           </div>
-          <div class="hobbies">
-            <% user.hobbies.each do |hobby|%>
-
-            <p class="tag"><%= hobby.name %></p>
-
-            <% end %>
+          <div class="card-right">
+            <h2><%=user.name%></h2>
+            <h3><strong>Location: </strong><%=user.address%></h3>
+            <h3><strong>Age: </strong><%=user.age%></h3>
+            <h3><strong>Gender: </strong><%=user.gender%></h3>
           </div>
         </div>
-        <div class="card-right ">
-
-          <h2><%=user.name%></h2>
-          <h3><strong>Location: </strong><%=user.address%></h3>
-          <h3><strong>Age: </strong><%=user.age%></h3>
-          <h3><strong>Gender: </strong><%=user.gender%></h3>
+        <div class="hider d-none w-100" data-user-card-target="content">
+          <div class="user-card mt-3">
+            <p><%= user.description %></p>
+          </div>
+          <%= form_tag inboxes_path, id: "form",method: :post do %>
+            <%= hidden_field_tag "user_id", "#{user.id}" %>
+            <button type="submit" class="retro fader">Send a letter!</button>
+          <% end %>
         </div>
       </div>
-      <div class="hider d-none w-100" data-user-card-target="content">
-        <div class="user-card mt-3">
-          <p><%= user.description %></p>
-        </div>
-        <%= form_tag inboxes_path, id: "form",method: :post do %>
-        <%= hidden_field_tag "user_id", "#{user.id}" %>
-        <button type="submit" class="retro fader">Send a letter!</button>
-        <% end %>
-      </div>
-    </div>
     <%end%>
   </div>
-  <div class="right-side">
-  <% if @users.size > 0  %>
-  <div class="my-2" style="height:70vh;
+  <div class="col d-none d-xl-block">
+    <% if @users.size > 0  %>
+      <div class="my-2" style="height:70vh;
   border-radius:20px" data-controller="mapbox" data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="pk.eyJ1IjoibmF0YWxpamFzdGVwdXJrbyIsImEiOiJja3o4bW8zb2UweGNzMm9tdXp2dmJzZWkyIn0.z470pOfFM8IlVP_FRfyt6g">
-  </div>
-  </div>
+      </div>
+    </div>
   <% else %>
-  <h1 class="text-center mt-5 p-5">Sorry, no results found. Please try again!</h1>
+    <h1 class="text-center mt-5 p-5">Sorry, no results found. Please try again!</h1>
   <% end %>
 </div>

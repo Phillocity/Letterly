@@ -1,6 +1,5 @@
 .banner {
   background-image: url("https://cypresspixill.files.wordpress.com/2015/09/stars.gif");
-  background-size: cover;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   height: 90vh;
@@ -17,9 +16,6 @@
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;
-    h1{
-      font-size: 3vw;
-    }
   }
 
   .arrow-container{
